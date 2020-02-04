@@ -1,0 +1,32 @@
+<RCC>
+    <qresource prefix="/icon">
+        <file>image/cancel16.png</file>
+        <file>image/cancel32.png</file>
+        <file>image/delete16.png</file>
+        <file>image/delete32.png</file>
+        <file>image/receipt16.png</file>
+        <file>image/receipt32.png</file>
+        <file>image/balance24.png</file>
+        <file>image/balance32.png</file>
+        <file>image/supplier16.png</file>
+        <file>image/supplier24.png</file>
+        <file>image/supplier32.png</file>
+        <file>image/cart32.png</file>
+        <file>image/client24.png</file>
+        <file>image/client32.png</file>
+        <file>image/employeeG24.png</file>
+        <file>image/add24.png</file>
+        <file>image/undo24.png</file>
+        <file>image/check24.png</file>
+        <file>image/form/call.png</file>
+        <file>image/form/city.png</file>
+        <file>image/form/email.png</file>
+        <file>image/form/flags.png</file>
+        <file>image/form/home-address.png</file>
+        <file>image/form/id-card.png</file>
+        <file>image/form/language.png</file>
+        <file>image/form/letter.png</file>
+        <file>image/form/smartphone.png</file>
+        <file>image/form/tax.png</file>
+    </qresource>
+</RCC>

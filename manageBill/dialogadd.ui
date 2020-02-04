@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DialogAdd</class>
+ <widget class="QDialog" name="DialogAdd">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>700</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>700</width>
+    <height>500</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>manageBill Add new client/supplier/personnel$</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="icon.qrc">
+    <normaloff>:/icon/image/receipt16.png</normaloff>:/icon/image/receipt16.png</iconset>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_7">
+   <item row="4" column="0" colspan="2">
+    <layout class="QGridLayout" name="gridLayout_5">
+     <item row="0" column="5">
+      <widget class="QLineEdit" name="lineEditDOY"/>
+     </item>
+     <item row="0" column="4">
+      <widget class="QLabel" name="label_9">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="icon.qrc">:/icon/image/form/tax.png</pixmap>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLabel" name="labelDOY">
+       <property name="styleSheet">
+        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Doy Number :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLineEdit" name="lineEditVAT"/>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="labelVAT">
+       <property name="styleSheet">
+        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Vat Number :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="label_11">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="icon.qrc">:/icon/image/form/tax.png</pixmap>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="5" column="0" colspan="2">
+    <layout class="QGridLayout" name="gridLayout_6">
+     <item row="0" column="4">
+      <widget class="QLabel" name="label_10">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="icon.qrc">:/icon/image/form/language.png</pixmap>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="5">
+      <widget class="QComboBox" name="comboBox">
+       <item>
+        <property name="text">
+         <string>spgodfgpdo</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>dgdfpgdfkg</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>pbfdd</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>dfgfdlk</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>dfgfd</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>fgfdĝpdo</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>$fpgdfg$</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>d$rĝpdfg</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>$ĝhpgf</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>dfgpĥgfphg</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>fgfgĥp</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>dgpd</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>dfgfgfd</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="label_12">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="icon.qrc">:/icon/image/form/email.png</pixmap>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLineEdit" name="lineEditEmail"/>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLabel" name="labelCountryLangage">
+       <property name="styleSheet">
+        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Country Langage</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="labelEmail">
+       <property name="styleSheet">
+        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
+</string>
+       </property>
+       <property name="text">
+        <string>Email :</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="2" column="0" colspan="2">
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="0" column="4">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="icon.qrc">:/icon/image/form/home-address.png</pixmap>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="5">
+      <widget class="QLineEdit" name="lineEditStreet"/>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLabel" name="labelStreet">
+       <property name="styleSheet">
+        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
+</string>
+       </property>
+       <property name="text">
+        <string>Street :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QComboBox" name="comboBox_2">
+       <item>
+        <property name="text">
+         <string>kjdhjhgzdgzdzef</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ksfhsksfhkdsf</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>dlgjeglkdj</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ropgjrop</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="labelCountry">
+       <property name="styleSheet">
+        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Country :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="icon.qrc">:/icon/image/form/flags.png</pixmap>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="3" column="0" colspan="2">
+    <layout class="QGridLayout" name="gridLayout_4">
+     <item row="0" column="1">
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="icon.qrc">:/icon/image/form/letter.png</pixmap>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="labelPostCode">
+       <property name="styleSheet">
+        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Post Code :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="4">
+      <widget class="QLabel" name="label_8">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="icon.qrc">:/icon/image/form/city.png</pixmap>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="5">
+      <widget class="QLineEdit" name="lineEditCity"/>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLineEdit" name="lineEditPostCode"/>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLabel" name="labelCity">
+       <property name="styleSheet">
+        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
+       </property>
+       <property name="text">
+        <string>City :</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="6" column="0">
+    <widget class="QPushButton" name="pushButtonBack">
+     <property name="styleSheet">
+      <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
+     </property>
+     <property name="text">
+      <string>&amp;Back</string>
+     </property>
+     <property name="icon">
+      <iconset resource="icon.qrc">
+       <normaloff>:/icon/image/undo24.png</normaloff>:/icon/image/undo24.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>24</width>
+       <height>24</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="2">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="4">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="icon.qrc">:/icon/image/form/id-card.png</pixmap>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="5">
+      <widget class="QLineEdit" name="lineEditFirstName"/>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLabel" name="labelFirstName">
+       <property name="styleSheet">
+        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
+       </property>
+       <property name="text">
+        <string>First Name :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="icon.qrc">:/icon/image/form/id-card.png</pixmap>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLineEdit" name="lineEdit"/>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="labelName">
+       <property name="styleSheet">
+        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Family/Company Name :</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0" colspan="2">
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="1">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="icon.qrc">:/icon/image/form/call.png</pixmap>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLineEdit" name="lineEditPhone"/>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLabel" name="labelMobilePhone">
+       <property name="styleSheet">
+        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Mobile Phone :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="labelPhone">
+       <property name="styleSheet">
+        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Phone :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="4">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="icon.qrc">:/icon/image/form/smartphone.png</pixmap>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="5">
+      <widget class="QLineEdit" name="lineEditMobilePhone"/>
+     </item>
+    </layout>
+   </item>
+   <item row="6" column="1">
+    <widget class="QPushButton" name="pushButtonAdd">
+     <property name="styleSheet">
+      <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
+     </property>
+     <property name="text">
+      <string>&amp;Add</string>
+     </property>
+     <property name="icon">
+      <iconset resource="icon.qrc">
+       <normaloff>:/icon/image/add24.png</normaloff>:/icon/image/add24.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>24</width>
+       <height>24</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="icon.qrc"/>
+ </resources>
+ <connections/>
+</ui>
