@@ -1,6 +1,7 @@
 #include "dialogaddinvoice.h"
 #include "ui_dialogaddinvoice.h"
 #include "dialogadd.h"
+#include "dialoginvoiceproduct.h"
 
 DialogAddInvoice::DialogAddInvoice(QWidget *parent) :
     QDialog(parent),
@@ -29,5 +30,11 @@ void DialogAddInvoice::on_pushButtonBack_clicked()
 void DialogAddInvoice::on_pushButtonAddHuman_clicked()
 {
     DialogAdd a;
+    a.exec();
+}
+
+void DialogAddInvoice::on_pushButtonAddProduct_clicked()
+{
+    DialogInvoiceProduct a;
     a.exec();
 }

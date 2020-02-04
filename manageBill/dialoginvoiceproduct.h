@@ -15,6 +15,15 @@ public:
     explicit DialogInvoiceProduct(QWidget *parent = 0);
     ~DialogInvoiceProduct();
 
+private slots:
+
+
+    void on_pushButtonAddProduct_clicked();
+
+    void on_pushButtonAddInvoice_clicked();
+
+    void on_pushButtonBack_clicked();
+
 private:
     Ui::DialogInvoiceProduct *ui;
 };

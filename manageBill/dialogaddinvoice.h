@@ -22,6 +22,8 @@ private slots:
 
     void on_pushButtonAddHuman_clicked();
 
+    void on_pushButtonAddProduct_clicked();
+
 private:
     Ui::DialogAddInvoice *ui;
 };

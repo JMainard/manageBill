@@ -1,5 +1,6 @@
 #include "dialoginvoiceproduct.h"
 #include "ui_dialoginvoiceproduct.h"
+#include "dialogaddproducts.h"
 
 DialogInvoiceProduct::DialogInvoiceProduct(QWidget *parent) :
     QDialog(parent),
@@ -13,17 +14,18 @@ DialogInvoiceProduct::~DialogInvoiceProduct()
     delete ui;
 }
 
-void DialogInvoiceProduct::on_pushButton_3_clicked()
+void DialogInvoiceProduct::on_pushButtonAddProduct_clicked()
+{
+    DialogAddProducts a;
+    a.exec();
+}
+
+void DialogInvoiceProduct::on_pushButtonAddInvoice_clicked()
 {
 
 }
 
-void DialogInvoiceProduct::on_pushButton_2_clicked()
+void DialogInvoiceProduct::on_pushButtonBack_clicked()
 {
-
-}
-
-void DialogInvoiceProduct::on_pushButton_clicked()
-{
-
+ reject();
 }

@@ -36,13 +36,16 @@
       </spacer>
      </item>
      <item row="0" column="1">
-      <widget class="QLabel" name="labelTtile">
+      <widget class="QLabel" name="labelTitle">
        <property name="styleSheet">
         <string notr="true">font: 75 15pt &quot;URW Palladio L&quot;;
 color: rgb(32, 74, 135);</string>
        </property>
        <property name="text">
         <string>Add product for invoice </string>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::RichText</enum>
        </property>
       </widget>
      </item>
@@ -88,7 +91,7 @@ color: rgb(32, 74, 135);</string>
       </widget>
      </item>
      <item row="0" column="3">
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="pushButtonAddProduct">
        <property name="styleSheet">
         <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
 </string>
@@ -185,7 +188,7 @@ color: rgb(32, 74, 135);</string>
    <item row="6" column="0">
     <layout class="QGridLayout" name="gridLayout">
      <item row="0" column="0">
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="pushButtonBack">
        <property name="styleSheet">
         <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
 </string>
@@ -219,7 +222,7 @@ color: rgb(32, 74, 135);</string>
       </spacer>
      </item>
      <item row="0" column="2">
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="pushButtonAddInvoice">
        <property name="styleSheet">
         <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
 </string>
