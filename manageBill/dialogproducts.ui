@@ -76,7 +76,7 @@ color: rgb(32, 74, 135);</string>
         <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
        </property>
        <property name="text">
-        <string>Add Products</string>
+        <string>&amp;Add Products</string>
        </property>
        <property name="icon">
         <iconset resource="icon.qrc">

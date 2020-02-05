@@ -1,7 +1,7 @@
 #include "dialogemployee.h"
 #include "ui_dialogemployee.h"
 #include "dialogadd.h"
-
+#include "dialogaddinvoice.h"
 DialogEmployee::DialogEmployee(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DialogEmployee)
@@ -29,4 +29,10 @@ void DialogEmployee::on_pushButtonAddEmployee_clicked()
     DialogAdd a;
     a.exec();
 
+}
+
+void DialogEmployee::on_pushButtonAddSalary_clicked()
+{
+    DialogAddInvoice a;
+    a.exec();
 }

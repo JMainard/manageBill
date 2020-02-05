@@ -15,6 +15,7 @@ public:
     explicit DialogClient(QWidget *parent = 0);
     ~DialogClient();
 
+
 private slots:
     void on_pushButtonAddClient_clicked();
 
@@ -25,6 +26,7 @@ private slots:
     void on_pushButtonSearch_clicked();
 
     void on_pushButtonBack_clicked();
+
 
 private:
     Ui::DialogClient *ui;

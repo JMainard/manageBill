@@ -28,5 +28,7 @@
         <file>image/form/letter.png</file>
         <file>image/form/smartphone.png</file>
         <file>image/form/tax.png</file>
+        <file>image/pdf.png</file>
+        <file>image/form/balance.png</file>
     </qresource>
 </RCC>

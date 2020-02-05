@@ -20,6 +20,8 @@ private slots:
 
     void on_pushButtonBack_clicked();
 
+    void on_pushButtonBillIsPaid_clicked();
+
 private:
     Ui::DialogInvoiceComplete *ui;
 };

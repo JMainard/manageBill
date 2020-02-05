@@ -79,7 +79,7 @@ color: rgb(32, 74, 135);</string>
      <item row="0" column="1">
       <widget class="QPushButton" name="pushButtonAddInvoice">
        <property name="text">
-        <string>Add Invoice</string>
+        <string>Add &amp;Invoice</string>
        </property>
        <property name="icon">
         <iconset resource="icon.qrc">
@@ -109,7 +109,7 @@ color: rgb(32, 74, 135);</string>
      <item row="0" column="3">
       <widget class="QPushButton" name="pushButtonAddSupplier">
        <property name="text">
-        <string>Add Supplier</string>
+        <string>Add &amp;Supplier</string>
        </property>
        <property name="icon">
         <iconset resource="icon.qrc">

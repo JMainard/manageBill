@@ -22,6 +22,8 @@ private slots:
 
     void on_pushButtonAddEmployee_clicked();
 
+    void on_pushButtonAddSalary_clicked();
+
 private:
     Ui::DialogEmployee *ui;
 };

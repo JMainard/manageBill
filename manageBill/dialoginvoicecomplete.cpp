@@ -22,3 +22,8 @@ void DialogInvoiceComplete::on_pushButtonBack_clicked()
 {
     reject();
 }
+
+void DialogInvoiceComplete::on_pushButtonBillIsPaid_clicked()
+{
+
+}
