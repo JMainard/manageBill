@@ -151,7 +151,7 @@ color: rgb(32, 74, 135);</string>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QComboBox" name="comboBox"/>
+      <widget class="QComboBox" name="comboBoxSearch"/>
      </item>
      <item row="0" column="2">
       <widget class="QLabel" name="labelEdit">
@@ -227,8 +227,14 @@ color: rgb(32, 74, 135);</string>
      <property name="sizeAdjustPolicy">
       <enum>QAbstractScrollArea::AdjustToContents</enum>
      </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
      <property name="selectionMode">
-      <enum>QAbstractItemView::ExtendedSelection</enum>
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
      </property>
      <attribute name="horizontalHeaderDefaultSectionSize">
       <number>150</number>
@@ -245,17 +251,7 @@ color: rgb(32, 74, 135);</string>
      </column>
      <column>
       <property name="text">
-       <string>Doy Number</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
        <string>Phone</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Adress</string>
       </property>
      </column>
      <column>
@@ -265,7 +261,12 @@ color: rgb(32, 74, 135);</string>
      </column>
      <column>
       <property name="text">
-       <string>Contact Language</string>
+       <string>Street</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>City</string>
       </property>
      </column>
      <column>
@@ -276,6 +277,16 @@ color: rgb(32, 74, 135);</string>
      <column>
       <property name="text">
        <string>Post Code</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Contact Language</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Doy Number</string>
       </property>
      </column>
     </widget>
@@ -324,6 +335,15 @@ color: rgb(32, 74, 135);</string>
      </property>
      <property name="sizeAdjustPolicy">
       <enum>QAbstractScrollArea::AdjustToContents</enum>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
      </property>
      <attribute name="horizontalHeaderDefaultSectionSize">
       <number>150</number>

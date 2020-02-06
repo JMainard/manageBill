@@ -22,6 +22,10 @@ private slots:
 
     void on_pushButtonBack_clicked();
 
+    void on_pushButtonSearch_clicked();
+
+    void on_tableWidgetSupplier_cellDoubleClicked(int row, int column);
+
 private:
     Ui::DialogSupplier *ui;
 };

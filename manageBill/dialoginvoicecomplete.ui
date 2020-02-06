@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>801</width>
-    <height>426</height>
+    <width>920</width>
+    <height>420</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -102,44 +102,6 @@ color: rgb(32, 74, 135);</string>
    </item>
    <item row="2" column="0">
     <layout class="QGridLayout" name="gridLayout_2">
-     <item row="0" column="0">
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <widget class="QLabel" name="labelI">
-         <property name="styleSheet">
-          <string notr="true">font: 75 14pt &quot;URW Palladio L&quot;;</string>
-         </property>
-         <property name="text">
-          <string>Invoice Paid :</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="labelInvoicePaid">
-         <property name="styleSheet">
-          <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
-color: rgb(32, 74, 135);</string>
-         </property>
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="0" column="1">
-      <spacer name="horizontalSpacer_8">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
      <item row="0" column="2">
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
@@ -164,19 +126,6 @@ color: rgb(32, 74, 135);</string>
         </widget>
        </item>
       </layout>
-     </item>
-     <item row="0" column="3">
-      <spacer name="horizontalSpacer_7">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
      </item>
      <item row="0" column="4">
       <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -216,6 +165,70 @@ color: rgb(32, 74, 135);</string>
        </property>
       </spacer>
      </item>
+     <item row="0" column="1">
+      <spacer name="horizontalSpacer_8">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="0" column="3">
+      <spacer name="horizontalSpacer_7">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="0" column="7">
+      <spacer name="horizontalSpacer_5">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="0" column="0">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="labelI">
+         <property name="styleSheet">
+          <string notr="true">font: 75 14pt &quot;URW Palladio L&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Invoice Paid :</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelInvoicePaid">
+         <property name="styleSheet">
+          <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
+color: rgb(32, 74, 135);</string>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
      <item row="0" column="6">
       <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
@@ -241,19 +254,6 @@ color: rgb(32, 74, 135);</string>
        </item>
       </layout>
      </item>
-     <item row="0" column="7">
-      <spacer name="horizontalSpacer_5">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
      <item row="0" column="8">
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
@@ -274,44 +274,6 @@ color: rgb(32, 74, 135);</string>
          </property>
          <property name="text">
           <string>TextLabel</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="0" column="9">
-      <spacer name="horizontalSpacer_10">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="0" column="10">
-      <layout class="QFormLayout" name="formLayout">
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_3">
-         <property name="styleSheet">
-          <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
-color: rgb(32, 74, 135);</string>
-         </property>
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="label_2">
-         <property name="styleSheet">
-          <string notr="true">font: 75 14pt &quot;URW Palladio L&quot;;</string>
-         </property>
-         <property name="text">
-          <string>Bill Paid :</string>
          </property>
         </widget>
        </item>
@@ -375,10 +337,13 @@ color: rgb(32, 74, 135);</string>
       <enum>Qt::ScrollBarAlwaysOff</enum>
      </property>
      <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
+      <enum>Qt::ScrollBarAsNeeded</enum>
      </property>
      <property name="sizeAdjustPolicy">
       <enum>QAbstractScrollArea::AdjustToContents</enum>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
      </property>
      <attribute name="horizontalHeaderDefaultSectionSize">
       <number>150</number>
@@ -406,6 +371,11 @@ color: rgb(32, 74, 135);</string>
      <column>
       <property name="text">
        <string>Quantity</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Type of Quantity</string>
       </property>
      </column>
     </widget>

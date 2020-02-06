@@ -16,9 +16,17 @@ public:
     ~DialogProducts();
 
 private slots:
+    void fillComboBoxCategory();
+
     void on_pushButtonBack_clicked();
 
     void on_pushButtonAddProduct_clicked();
+
+    void on_pushButtonSearch_clicked();
+
+    void on_comboBoxSCategory_currentIndexChanged(int index);
+
+    void on_comboBoxCategory_currentIndexChanged(int index);
 
 private:
     Ui::DialogProducts *ui;

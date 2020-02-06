@@ -278,12 +278,29 @@ color: rgb(32, 74, 135);</string>
      <property name="sizeAdjustPolicy">
       <enum>QAbstractScrollArea::AdjustToContents</enum>
      </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
      <attribute name="horizontalHeaderDefaultSectionSize">
       <number>150</number>
      </attribute>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
      <column>
       <property name="text">
-       <string>Billind date</string>
+       <string>Id</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Billing date</string>
       </property>
      </column>
      <column>
@@ -303,7 +320,7 @@ color: rgb(32, 74, 135);</string>
      </column>
      <column>
       <property name="text">
-       <string>paid invoice</string>
+       <string>Paid invoice</string>
       </property>
      </column>
     </widget>
@@ -378,11 +395,20 @@ color: rgb(32, 74, 135);</string>
      <property name="sizeAdjustPolicy">
       <enum>QAbstractScrollArea::AdjustToContents</enum>
      </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
      <property name="selectionMode">
-      <enum>QAbstractItemView::ExtendedSelection</enum>
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
      </property>
      <attribute name="horizontalHeaderDefaultSectionSize">
       <number>150</number>
+     </attribute>
+     <attribute name="verticalHeaderVisible">
+      <bool>true</bool>
      </attribute>
      <column>
       <property name="text">

@@ -1,7 +1,8 @@
 #include "dialoginvoicecomplete.h"
 #include "ui_dialoginvoicecomplete.h"
+#include "dialogclient.h"
 
-DialogInvoiceComplete::DialogInvoiceComplete(QWidget *parent) :
+DialogInvoiceComplete::DialogInvoiceComplete( QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DialogInvoiceComplete)
 {

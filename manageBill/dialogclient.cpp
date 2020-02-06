@@ -6,6 +6,8 @@
 #include "dialogadd.h"
 #include <QSqlQuery>
 #include <QString>
+#include <QDebug>
+#include <QDate>
 DialogClient::DialogClient(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DialogClient)
@@ -27,12 +29,6 @@ void DialogClient::on_pushButtonAddClient_clicked()
   a.exec();
 }
 
-void DialogClient::on_tableWidgetInvoice_cellDoubleClicked(int row, int column)
-{
-    DialogInvoiceComplete a;
-    a.exec();
-}
-
 void DialogClient::on_pushButtonAddInvoice_clicked()
 {
  DialogAddInvoice a;
@@ -46,12 +42,17 @@ void DialogClient::on_pushButtonAddInvoice_clicked()
  */
 void DialogClient::on_pushButtonSearch_clicked()
 {
+ //We clear contents Tables when he retry a search
+    ui->tableWidgetClient->clearContents();
+    ui->tableWidgetInvoice->clearContents();
  //Switch to adapt request between Vat and Name and adapt between CompanyCLient or not company.
-    int var =ui->comboBoxSearch->currentText().toInt();
+    int var =ui->comboBoxSearch->currentData().toInt();
     switch (var) {
-    case 1:
+    case 2:
         if (ui->checkBoxCompanyClient->isChecked()==true) {
-            QString requestCCV=("select vCliId, vCliCompanyName, vCliVatNumber, vCliEmail, vCliPhone,vCliMobilPhone, cCliStreet , vCliCity , vCliPostCode , vCliCountry, vCliDoyNumber from vCompanyClient where vCliVatNumber like '%"+ui->lineEditSearch->text()+"%';");
+qDebug() << "Je suis dans  company client VAT ";
+            QString requestCCV=("select  vCliCompanyName, vCliVatNumber, vCliEmail, vCliPhone,vCliMobilPhone, vCliStreet , vCliCity , vCliPostCode , vCliCountry, vCliDoyNumber from vCompanyClient where vCliVatNumber like '%"+ui->lineEditSearch->text()+"%';");
+//qDebug() << requestCCV;
             QSqlQuery requestCompanyClientVAT(requestCCV);
             int numLigne=0;
             ui->tableWidgetClient->setRowCount(0);// We set 0 row in the table
@@ -59,7 +60,6 @@ void DialogClient::on_pushButtonSearch_clicked()
             while(requestCompanyClientVAT.next())
             {
               ui->tableWidgetClient->setRowCount((ui->tableWidgetClient->rowCount()+1)); // We add a row and write on her
-              int cliId = requestCompanyClientVAT.value("vCliId").toInt();
               QString cliCompanyName = requestCompanyClientVAT.value("vCliCompanyName").toString();
               QString cliVatNumber = requestCompanyClientVAT.value("vCliVatNumber").toString();
               QString cliEmail = requestCompanyClientVAT.value("vCliEmail").toString();
@@ -90,8 +90,10 @@ void DialogClient::on_pushButtonSearch_clicked()
             ui->tableWidgetClient->resizeRowsToContents(); //We resize table if we have a row in more
         }
         else{
-            QString requestICV=("select vCliId, vCliFirstName, vCliVatNumber, vCliEmail, vCliPhone,vCliMobilPhone, cCliStreet , vCliCity , vCliPostCode , vCliCountry, vCliDoyNumber from vIndividualClient where vCliVatNumber like '%"+ui->lineEditSearch->text()+"%';" );
+qDebug()<< "Je suis dans individual Client VAT";
+            QString requestICV=("select vCliFamilyName, vCliFirstName, vCliVatNumber, vCliEmail, vCliPhone, vCliMobilPhone, vCliStreet, vCliCity, vCliPostCode, vCliCountry, vCliDoyNumber from vIndividualClient where vCliVatNumber like '%"+ui->lineEditSearch->text()+"%';" );
             QSqlQuery requestIndividualClientVAT(requestICV);
+//qDebug()<< requestICV;
 
             int numLigne=0;
             ui->tableWidgetClient->setRowCount(0);// We set 0 row in the table
@@ -99,9 +101,8 @@ void DialogClient::on_pushButtonSearch_clicked()
             while(requestIndividualClientVAT.next())
             {
               ui->tableWidgetClient->setRowCount((ui->tableWidgetClient->rowCount()+1)); // We add a row and write on her
-              int cliId = requestIndividualClientVAT.value("vCliId").toInt();
-              QString cliFirstName = requestIndividualClientVAT.value("vCliFirstName").toString();
               QString cliFamilyName = requestIndividualClientVAT.value("vCliFamilyName").toString();
+              QString cliFirstName = requestIndividualClientVAT.value("vCliFirstName").toString();             
               QString cliVatNumber = requestIndividualClientVAT.value("vCliVatNumber").toString();
               QString cliEmail = requestIndividualClientVAT.value("vCliEmail").toString();
               QString cliPhone= requestIndividualClientVAT.value("vCliPhone").toString();
@@ -131,10 +132,13 @@ void DialogClient::on_pushButtonSearch_clicked()
             ui->tableWidgetClient->resizeRowsToContents(); //We resize table if we have a row in more
         }
         break;
-    case 2:
+    case 1:
+qDebug()<<"case 1 ";
         if (ui->checkBoxCompanyClient->isChecked()==true) {
-            QString requestCCN=("select vCliId, vCliCompanyName, vCliVatNumber, vCliEmail, vCliPhone,vCliMobilPhone, cCliStreet , vCliCity , vCliPostCode , vCliCountry, vCliDoyNumber from vCompanyClient where vCliCompanyName like '%"+ui->lineEditSearch->text()+"%';");
+qDebug()<< "Je suis dans company Client Name ";
+            QString requestCCN=("select vCliCompanyName, vCliVatNumber, vCliEmail, vCliPhone,vCliMobilPhone, vCliStreet , vCliCity , vCliPostCode , vCliCountry, vCliDoyNumber from vCompanyClient where vCliCompanyName like '%"+ui->lineEditSearch->text()+"%';");
             QSqlQuery requestCompanyClientName(requestCCN);
+qDebug()<<requestCCN;
 
             int numLigne=0;
             ui->tableWidgetClient->setRowCount(0);// We set 0 row in the table
@@ -142,7 +146,6 @@ void DialogClient::on_pushButtonSearch_clicked()
             while(requestCompanyClientName.next())
             {
               ui->tableWidgetClient->setRowCount((ui->tableWidgetClient->rowCount()+1)); // We add a row and write on her
-              int cliId = requestCompanyClientName.value("vCliId").toInt();
               QString cliCompanyName = requestCompanyClientName.value("vCliCompanyName").toString();
               QString cliVatNumber = requestCompanyClientName.value("vCliVatNumber").toString();
               QString cliEmail = requestCompanyClientName.value("vCliEmail").toString();
@@ -173,17 +176,19 @@ void DialogClient::on_pushButtonSearch_clicked()
             ui->tableWidgetClient->resizeRowsToContents(); //We resize table if we have a row in more
         }
         else{
-            QString requestICN=("select vCliId, vCliFirstName, vCliVatNumber, vCliEmail, vCliPhone,vCliMobilPhone, cCliStreet , vCliCity , vCliPostCode , vCliCountry, vCliDoyNumber from vIndividualClient where vCliFirstName like '%"+ui->lineEditSearch->text()+"%';");
+qDebug() <<"Je suis dans individual client Name";
+            QString requestICN=("select  vCliFamilyName, vCliFirstName, vCliVatNumber, vCliEmail, vCliPhone,vCliMobilPhone, vCliStreet , vCliCity , vCliPostCode , vCliCountry, vCliDoyNumber from vIndividualClient where vCliFirstName like '%"+ui->lineEditSearch->text()+"%';");
             QSqlQuery requestIndividualClientName(requestICN);
+//qDebug() << requestICN;
+
             int numLigne=0;
             ui->tableWidgetClient->setRowCount(0);// We set 0 row in the table
 
             while(requestIndividualClientName.next())
             {
               ui->tableWidgetClient->setRowCount((ui->tableWidgetClient->rowCount()+1)); // We add a row and write on her
-              int cliId = requestIndividualClientName.value("vCliId").toInt();
-              QString cliFirstName = requestIndividualClientName.value("vCliFirstName").toString();
               QString cliFamilyName = requestIndividualClientName.value("vCliFamilyName").toString();
+              QString cliFirstName = requestIndividualClientName.value("vCliFirstName").toString();
               QString cliVatNumber = requestIndividualClientName.value("vCliVatNumber").toString();
               QString cliEmail = requestIndividualClientName.value("vCliEmail").toString();
               QString cliPhone= requestIndividualClientName.value("vCliPhone").toString();
@@ -219,4 +224,51 @@ void DialogClient::on_pushButtonSearch_clicked()
 void DialogClient::on_pushButtonBack_clicked()
 {
    reject();
+}
+
+void DialogClient::on_tableWidgetClient_cellDoubleClicked(int row, int column)
+{
+qDebug() << "Table Widget Client doubleClicked ";
+    QString invoiceVAT = ui->tableWidgetClient->item(row,1)->text();
+    QString requestInvoice = ("select distinct  vBcId, vBcBillingDate, vBcPaymentDate, vBcTotalAmount, vBcReason, vBcBillPaid from vClientInvoice where vCliVatNumber like'%"+invoiceVAT+"%';");
+    QSqlQuery requestInvoiceTable(requestInvoice);
+qDebug() << requestInvoice;
+    int line = 0;
+     ui->tableWidgetInvoice->setRowCount(0);
+
+     while (requestInvoiceTable.next())
+     {
+        ui->tableWidgetInvoice->setRowCount(ui->tableWidgetInvoice->rowCount()+1);
+        QString bcId = requestInvoiceTable.value("vBcId").toString();
+        QString billingDate= requestInvoiceTable.value("vBcBillingDate").toString();
+        QString paymentDate= requestInvoiceTable.value("vBcPaymentDate").toString();
+        QString totalAmount = requestInvoiceTable.value("vBcTotalAmount").toString();
+        QString reason = requestInvoiceTable.value("vBcReason").toString();
+        QString billPaid;
+        if(requestInvoiceTable.value("vBcBillPaid").toInt()==0){
+            billPaid ="No";
+        }
+        else{
+            billPaid="Yes";
+        }
+qDebug() <<bcId;
+       ui->tableWidgetInvoice->setItem(line,0,new QTableWidgetItem(bcId));
+       ui->tableWidgetInvoice->setItem(line,1,new QTableWidgetItem(billingDate));
+       ui->tableWidgetInvoice->setItem(line,2,new QTableWidgetItem(paymentDate));
+       ui->tableWidgetInvoice->setItem(line,3,new QTableWidgetItem(totalAmount));
+       ui->tableWidgetInvoice->setItem(line,4,new QTableWidgetItem(reason));
+       ui->tableWidgetInvoice->setItem(line,5,new QTableWidgetItem(billPaid));
+
+       line++;
+     }
+     ui->tableWidgetInvoice->resizeRowsToContents();
+
+}
+
+void DialogClient::on_tableWidgetInvoice_cellDoubleClicked(int row, int column)
+{
+    //We recup bcId and retake all information to have complete Invoice
+
+    DialogInvoiceComplete a;
+    a.exec();
 }

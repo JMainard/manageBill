@@ -108,25 +108,45 @@ color: rgb(32, 74, 135);</string>
    <item row="2" column="0">
     <layout class="QGridLayout" name="gridLayout_3">
      <item row="0" column="0">
-      <widget class="QLabel" name="labelSearch">
-       <property name="autoFillBackground">
-        <bool>false</bool>
-       </property>
+      <widget class="QLabel" name="labelCategory">
        <property name="styleSheet">
-        <string notr="true">font: 75 14pt &quot;URW Palladio L&quot;;</string>
+        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
        </property>
        <property name="text">
-        <string>Search :</string>
-       </property>
-       <property name="textFormat">
-        <enum>Qt::RichText</enum>
+        <string>Category :</string>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QComboBox" name="comboBox"/>
+      <widget class="QComboBox" name="comboBoxCategory"/>
      </item>
      <item row="0" column="2">
+      <widget class="QLabel" name="labelSCategory">
+       <property name="styleSheet">
+        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Sub Category :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QComboBox" name="comboBoxSCategory"/>
+     </item>
+     <item row="0" column="4">
+      <widget class="QLabel" name="labelName">
+       <property name="styleSheet">
+        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Name :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="5">
+      <widget class="QComboBox" name="comboBoxName"/>
+     </item>
+     <item row="0" column="6">
       <widget class="QPushButton" name="pushButtonSearch">
        <property name="styleSheet">
         <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
@@ -151,7 +171,7 @@ color: rgb(32, 74, 135);</string>
    <item row="3" column="0">
     <layout class="QGridLayout" name="gridLayout_4">
      <item row="0" column="0">
-      <widget class="QLabel" name="labelTable2">
+      <widget class="QLabel" name="labelTableProduct">
        <property name="toolTip">
         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>

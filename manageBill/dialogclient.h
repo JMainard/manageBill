@@ -15,7 +15,6 @@ public:
     explicit DialogClient(QWidget *parent = 0);
     ~DialogClient();
 
-
 private slots:
     void on_pushButtonAddClient_clicked();
 
@@ -27,6 +26,7 @@ private slots:
 
     void on_pushButtonBack_clicked();
 
+    void on_tableWidgetClient_cellDoubleClicked(int row, int column);
 
 private:
     Ui::DialogClient *ui;
