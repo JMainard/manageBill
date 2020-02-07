@@ -227,7 +227,12 @@ color: rgb(32, 74, 135);</string>
      </attribute>
      <column>
       <property name="text">
-       <string>Billind date</string>
+       <string>Name</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Billing date</string>
       </property>
      </column>
      <column>
@@ -247,7 +252,7 @@ color: rgb(32, 74, 135);</string>
      </column>
      <column>
       <property name="text">
-       <string>paid invoice</string>
+       <string>Paid invoice</string>
       </property>
      </column>
     </widget>

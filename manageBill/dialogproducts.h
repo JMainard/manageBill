@@ -24,9 +24,9 @@ private slots:
 
     void on_pushButtonSearch_clicked();
 
-    void on_comboBoxSCategory_currentIndexChanged(int index);
+    void on_comboBoxCategory_currentTextChanged(const QString &arg1);
 
-    void on_comboBoxCategory_currentIndexChanged(int index);
+    void on_comboBoxSCategory_currentTextChanged(const QString &arg1);
 
 private:
     Ui::DialogProducts *ui;
