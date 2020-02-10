@@ -16,10 +16,19 @@ public:
     ~DialogAddProducts();
 
 private slots:
+    void fillComboBoxTOQ();
 
     void on_pushButtonAdd_clicked();
 
     void on_pushButtonBack_clicked();
+
+    void fillComboBoxCategory();
+
+    void on_comboBoxCategory_currentTextChanged(const QString &arg1);
+
+    void on_comboBoxSCategory_currentTextChanged(const QString &arg1);
+
+    void on_comboBoxTOQ_currentTextChanged(const QString &arg1);
 
 private:
     Ui::DialogAddProducts *ui;

@@ -15,7 +15,7 @@ public:
     explicit DialogProducts(QWidget *parent = 0);
     ~DialogProducts();
 
-private slots:
+private slots:    
     void fillComboBoxCategory();
 
     void on_pushButtonBack_clicked();

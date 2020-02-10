@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>500</width>
-    <height>300</height>
+    <height>375</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -137,7 +137,20 @@ color: rgb(32, 74, 135);</string>
    <item row="6" column="1">
     <widget class="QComboBox" name="comboBoxTOQ"/>
    </item>
-   <item row="7" column="0" colspan="2">
+   <item row="7" column="1">
+    <widget class="QLabel" name="labelOrTOQ">
+     <property name="styleSheet">
+      <string notr="true">font: 75 14pt &quot;URW Palladio L&quot;;</string>
+     </property>
+     <property name="text">
+      <string>or add</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="1">
+    <widget class="QLineEdit" name="lineEditAddTOQ"/>
+   </item>
+   <item row="9" column="0" colspan="2">
     <layout class="QGridLayout" name="gridLayout">
      <item row="0" column="0">
       <widget class="QPushButton" name="pushButtonBack">

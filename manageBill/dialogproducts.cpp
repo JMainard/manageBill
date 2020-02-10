@@ -52,7 +52,7 @@ qDebug() << arg1;
     //every time change category we fill sub Category and Products
        QString fillSCategory =(" select vSCatId,vSCatWording from vFillSCategory where vCatId='"+category+"'");
        QSqlQuery requestFillSCategory(fillSCategory);
-       ui->comboBoxSCategory->addItem("",0);
+       ui->comboBoxSCategory->addItem("Choose",0);
        while (requestFillSCategory.next()){
            int catId = requestFillSCategory.value("vSCatId").toInt();
            QString catWording = requestFillSCategory.value("vSCatWording").toString();
@@ -101,17 +101,94 @@ void DialogProducts::on_pushButtonSearch_clicked()
 {
 // We  show all invoice with product select
     ui->tableWidgetInvoice->clearContents();
-
+    int lines = 0;
+    ui->tableWidgetInvoice->setRowCount(0);
     QString prodId = ui->comboBoxName->currentData().toString();
-    QString findInvoiceSupplier = ("select bsBillingDate,bsPaymentDate,bsTotalAmount,bsReason,bsBillPaid from billSupplier inner join supplierProducts on supplierProducts.bsId=billSupplier.bsId inner join supplier on supplier.supId=billSupplier.supId  where supplierProducts.prodId='"+prodId+"'");
+
+    QString findInvoiceSupplier = ("select vBsBillingDate, vBsPaymentDate, vBsTotalAmount, vBsReason, vBsBillPaid, vSupCompanyName from vInvoicePerProductSupplier where vProdId='"+prodId+"'");
+qDebug() << "REQUEST Supplier : " + findInvoiceSupplier;
     QSqlQuery requestFindInvoiceSupplier(findInvoiceSupplier);
+    while (requestFindInvoiceSupplier.next()){
+        ui->tableWidgetInvoice->setRowCount(ui->tableWidgetInvoice->rowCount()+1);
+        QString supBillingDate = requestFindInvoiceSupplier.value("vBsBillingDate").toString();
+        QString supPaymentDate =  requestFindInvoiceSupplier.value("vBsPaymentDate").toString();
+        QString supTotalAmount = requestFindInvoiceSupplier.value("vBsTotalAmount").toString();
+        QString supReason = requestFindInvoiceSupplier.value("vBsReason").toString();
+        QString supCompanyName = requestFindInvoiceSupplier.value("vSupCompanyName").toString();
+        QString supBillPaid;
+        if (requestFindInvoiceSupplier.value("vBsBillPaid").toInt()==0){
+            supBillPaid="No";
+        }
+        else {
+            supBillPaid="Yes";
+        }
+        ui->tableWidgetInvoice->setItem(lines,0,new QTableWidgetItem(supCompanyName));
+        ui->tableWidgetInvoice->setItem(lines,1,new QTableWidgetItem(supBillingDate));
+        ui->tableWidgetInvoice->setItem(lines,2,new QTableWidgetItem(supPaymentDate));
+        ui->tableWidgetInvoice->setItem(lines,3,new QTableWidgetItem(supTotalAmount));
+        ui->tableWidgetInvoice->setItem(lines,4,new QTableWidgetItem(supReason));
+        ui->tableWidgetInvoice->setItem(lines,5,new QTableWidgetItem(supBillPaid));
+        lines++;
+    }
 
-    QString findInvoiceClient = ("select bcBillingDate,bcPaymentDate,bcTotalAmount,bcReason,bcBillPaid from billClient inner join clientProducts on clientProducts.bcId=billClient.bcId inner join client on client.cliId=billClient.cliId where clientProducts.prodId='"+prodId+"'");
+
+    QString findInvoiceClient = ("select vBcBillingDate,vBcPaymentDate,vBcTotalAmount,vBcReason, vBcBillPaid, vCliFirstName, vCliFamilyName, vCliCompanyName from vInvoicePerProductClient where vProdId='"+prodId+"'");
+qDebug ()<< "REQUETS CLIENT : " + findInvoiceClient;
     QSqlQuery requestFindInvoiceClient(findInvoiceClient);
+    while (requestFindInvoiceClient.next()) {
+        ui->tableWidgetInvoice->setRowCount(ui->tableWidgetInvoice->rowCount()+1);
+        QString cliBillingDate = requestFindInvoiceClient.value("vBcBillingDate").toString();
+        QString cliPaymentDate =  requestFindInvoiceClient.value("vBcPaymentDate").toString();
+        QString cliTotalAmount = requestFindInvoiceClient.value("vBcTotalAmount").toString();
+        QString cliReason = requestFindInvoiceClient.value("vBcReason").toString();
+        QString cliCompanyName = requestFindInvoiceClient.value("vCliCompanyName").toString();
+        QString cliFirstName = requestFindInvoiceClient.value("vCliFirstName").toString();
+        QString cliFamilyName = requestFindInvoiceClient.value("vCliFamilyName").toString();
+        QString cliBillPaid;
+        if(requestFindInvoiceClient.value("vBcBillPaid").toInt()==0){
+            cliBillPaid = "No";
+        }
+        else {
+            cliBillPaid= "Yes";
+        }
 
-    QString findInvoicePersonnel =("select bpBillingDate, bpPaymentDate, bpTotalAmount, bpReason, bpBillPaid from billPersonnel inner join persoProducts on persoProducts.bpId=billPersonnel.bpId inner join personnel on personnel.perId=billPersonnel.persId where persoProducts.prodId='"+prodId+"'");
+        ui->tableWidgetInvoice->setItem(lines,0,new QTableWidgetItem(cliCompanyName+" "+cliFamilyName+" "+cliFirstName));
+        ui->tableWidgetInvoice->setItem(lines,1,new QTableWidgetItem(cliBillingDate));
+        ui->tableWidgetInvoice->setItem(lines,2,new QTableWidgetItem(cliPaymentDate));
+        ui->tableWidgetInvoice->setItem(lines,3,new QTableWidgetItem(cliTotalAmount));
+        ui->tableWidgetInvoice->setItem(lines,4,new QTableWidgetItem(cliReason));
+        ui->tableWidgetInvoice->setItem(lines,5,new QTableWidgetItem(cliBillPaid));
+        lines++;
+    }
+
+    QString findInvoicePersonnel =("select vBpBillingDate, vBpPaymentDate, vBpTotalAmount, vBpReason, vBpBillPaid, vPersFamilyName, vPersFirstName from vInvoicePerProductPersonnel where vProdId='"+prodId+"'");
+qDebug() << " REQUEST PERSONNEL : " +findInvoicePersonnel;
     QSqlQuery requestFindInvoicePersonnel (findInvoicePersonnel);
+    while (requestFindInvoicePersonnel.next()) {
+        ui->tableWidgetInvoice->setRowCount(ui->tableWidgetInvoice->rowCount()+1);
+        QString perBillingDate = requestFindInvoicePersonnel.value("vBpBillingDate").toString();
+        QString perPaymentDate =  requestFindInvoicePersonnel.value("vBpPaymentDate").toString();
+        QString perTotalAmount = requestFindInvoicePersonnel.value("vBpTotalAmount").toString();
+        QString perReason = requestFindInvoicePersonnel.value("vBpReason").toString();
+        QString perFamilyName = requestFindInvoicePersonnel.value("vPersFamilyName").toString();
+        QString perFirstName = requestFindInvoicePersonnel.value("vPersFirstName").toString();
+        QString perBillPaid;
+        if(requestFindInvoicePersonnel.value("vBpBillPaid").toInt()==0){
+            perBillPaid = "No";
+        }
+        else {
+            perBillPaid= "Yes";
+        }
 
+        ui->tableWidgetInvoice->setItem(lines,0,new QTableWidgetItem(perFamilyName+" "+perFirstName));
+        ui->tableWidgetInvoice->setItem(lines,1,new QTableWidgetItem(perBillingDate));
+        ui->tableWidgetInvoice->setItem(lines,2,new QTableWidgetItem(perPaymentDate));
+        ui->tableWidgetInvoice->setItem(lines,3,new QTableWidgetItem(perTotalAmount));
+        ui->tableWidgetInvoice->setItem(lines,4,new QTableWidgetItem(perReason));
+        ui->tableWidgetInvoice->setItem(lines,5,new QTableWidgetItem(perBillPaid));
+        lines++;
+    }
+    ui->tableWidgetInvoice->resizeRowsToContents();
 
 }
 
