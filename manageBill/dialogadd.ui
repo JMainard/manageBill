@@ -27,7 +27,7 @@
    <item row="0" column="0" colspan="2">
     <layout class="QGridLayout" name="gridLayout">
      <item row="0" column="4">
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="labelIcon2Name">
        <property name="text">
         <string/>
        </property>
@@ -50,7 +50,7 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="labelIconName">
        <property name="text">
         <string/>
        </property>
@@ -60,7 +60,7 @@
       </widget>
      </item>
      <item row="0" column="2">
-      <widget class="QLineEdit" name="lineEdit"/>
+      <widget class="QLineEdit" name="lineEditName"/>
      </item>
      <item row="0" column="0">
       <widget class="QLabel" name="labelName">
@@ -114,7 +114,7 @@
    <item row="2" column="0" colspan="2">
     <layout class="QGridLayout" name="gridLayout_2">
      <item row="0" column="1">
-      <widget class="QLabel" name="label_3">
+      <widget class="QLabel" name="labelIconPhone">
        <property name="text">
         <string/>
        </property>
@@ -147,7 +147,7 @@
       </widget>
      </item>
      <item row="0" column="4">
-      <widget class="QLabel" name="label_4">
+      <widget class="QLabel" name="labelIconMobilePhone">
        <property name="text">
         <string/>
        </property>
@@ -164,7 +164,7 @@
    <item row="3" column="0" colspan="2">
     <layout class="QGridLayout" name="gridLayout_3">
      <item row="0" column="4">
-      <widget class="QLabel" name="label_5">
+      <widget class="QLabel" name="labelIconStreet">
        <property name="text">
         <string/>
        </property>
@@ -188,27 +188,16 @@
       </widget>
      </item>
      <item row="0" column="2">
-      <widget class="QComboBox" name="comboBox_2">
-       <item>
-        <property name="text">
-         <string>kjdhjhgzdgzdzef</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>ksfhsksfhkdsf</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>dlgjeglkdj</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>ropgjrop</string>
-        </property>
-       </item>
+      <widget class="QComboBox" name="comboBoxCountry">
+       <property name="minimumSize">
+        <size>
+         <width>143</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QComboBox::AdjustToMinimumContentsLength</enum>
+       </property>
       </widget>
      </item>
      <item row="0" column="0">
@@ -222,7 +211,7 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLabel" name="label_6">
+      <widget class="QLabel" name="labelIconCountry">
        <property name="text">
         <string/>
        </property>
@@ -236,7 +225,7 @@
    <item row="4" column="0" colspan="2">
     <layout class="QGridLayout" name="gridLayout_4">
      <item row="0" column="1">
-      <widget class="QLabel" name="label_7">
+      <widget class="QLabel" name="labelIconPostCOde">
        <property name="text">
         <string/>
        </property>
@@ -256,7 +245,7 @@
       </widget>
      </item>
      <item row="0" column="4">
-      <widget class="QLabel" name="label_8">
+      <widget class="QLabel" name="labelIconCity">
        <property name="text">
         <string/>
        </property>
@@ -289,7 +278,7 @@
       <widget class="QLineEdit" name="lineEditDOY"/>
      </item>
      <item row="0" column="4">
-      <widget class="QLabel" name="label_9">
+      <widget class="QLabel" name="labelIconDOY">
        <property name="text">
         <string/>
        </property>
@@ -322,7 +311,7 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLabel" name="label_11">
+      <widget class="QLabel" name="labelIconVat">
        <property name="text">
         <string/>
        </property>
@@ -336,7 +325,7 @@
    <item row="6" column="0" colspan="2">
     <layout class="QGridLayout" name="gridLayout_6">
      <item row="0" column="4">
-      <widget class="QLabel" name="label_10">
+      <widget class="QLabel" name="labelIconLanguage">
        <property name="text">
         <string/>
        </property>
@@ -346,76 +335,10 @@
       </widget>
      </item>
      <item row="0" column="5">
-      <widget class="QComboBox" name="comboBox">
-       <item>
-        <property name="text">
-         <string>spgodfgpdo</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>dgdfpgdfkg</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>pbfdd</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>dfgfdlk</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>dfgfd</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>fgfdĝpdo</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>$fpgdfg$</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>d$rĝpdfg</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>$ĝhpgf</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>dfgpĥgfphg</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>fgfgĥp</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>dgpd</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>dfgfgfd</string>
-        </property>
-       </item>
-      </widget>
+      <widget class="QComboBox" name="comboBoxLanguage"/>
      </item>
      <item row="0" column="1">
-      <widget class="QLabel" name="label_12">
+      <widget class="QLabel" name="labelIconEmail">
        <property name="text">
         <string/>
        </property>

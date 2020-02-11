@@ -24,6 +24,8 @@ private slots:
 
     void on_pushButtonAddSalary_clicked();
 
+    void on_tableWidgetEmployee_cellDoubleClicked(int row, int column);
+
 private:
     Ui::DialogEmployee *ui;
 };

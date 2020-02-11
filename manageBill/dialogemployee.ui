@@ -24,75 +24,6 @@
     <normaloff>:/icon/image/receipt16.png</normaloff>:/icon/image/receipt16.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout_7">
-   <item row="4" column="0">
-    <widget class="QTableWidget" name="tableWidgetEmployee">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>100</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
-     </property>
-     <property name="sizeAdjustPolicy">
-      <enum>QAbstractScrollArea::AdjustToContents</enum>
-     </property>
-     <attribute name="horizontalHeaderDefaultSectionSize">
-      <number>150</number>
-     </attribute>
-     <column>
-      <property name="text">
-       <string>Family Name</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>First Name</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Vat Number</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Street</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>City</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Country</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Post Code</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Email</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Doy Number</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Mobile</string>
-      </property>
-     </column>
-    </widget>
-   </item>
    <item row="5" column="0">
     <layout class="QGridLayout" name="gridLayout_6">
      <item row="0" column="0">
@@ -376,16 +307,33 @@ color:rgb(32, 74, 135)</string>
     </layout>
    </item>
    <item row="6" column="0">
-    <widget class="QTableWidget" name="tableWidget">
+    <widget class="QTableWidget" name="tableWidgetInvoice">
      <property name="styleSheet">
       <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
      </property>
      <property name="sizeAdjustPolicy">
       <enum>QAbstractScrollArea::AdjustToContents</enum>
      </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
      <attribute name="horizontalHeaderDefaultSectionSize">
       <number>150</number>
      </attribute>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
+     <column>
+      <property name="text">
+       <string>Id</string>
+      </property>
+     </column>
      <column>
       <property name="text">
        <string>Billing Date</string>
@@ -398,12 +346,100 @@ color:rgb(32, 74, 135)</string>
      </column>
      <column>
       <property name="text">
-       <string>Bill Paid</string>
+       <string>Amount</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>Amount</string>
+       <string>Reason</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Paid Invoice</string>
+      </property>
+     </column>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QTableWidget" name="tableWidgetEmployee">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>100</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
+     </property>
+     <property name="sizeAdjustPolicy">
+      <enum>QAbstractScrollArea::AdjustToContents</enum>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>150</number>
+     </attribute>
+     <column>
+      <property name="text">
+       <string>Family Name</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>First Name</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Vat Number</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Street</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>City</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Country</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Post Code</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Email</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Doy Number</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Mobile</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Language</string>
       </property>
      </column>
     </widget>

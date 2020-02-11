@@ -15,6 +15,21 @@ DialogAddInvoice::~DialogAddInvoice()
     delete ui;
 }
 
+void DialogAddInvoice::addInvoiceClient()
+{
+
+}
+
+void DialogAddInvoice::addInvoiceSupplier()
+{
+
+}
+
+void DialogAddInvoice::addInvoiceEmployee()
+{
+
+}
+
 
 void DialogAddInvoice::on_pushButtonAdd_clicked()
 {

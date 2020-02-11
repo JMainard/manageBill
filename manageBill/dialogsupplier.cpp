@@ -22,14 +22,16 @@ DialogSupplier::~DialogSupplier()
 
 void DialogSupplier::on_pushButtonAddInvoice_clicked()
 {
-    DialogAddInvoice a;
-    a.exec();
+    DialogAddInvoice dialogInvoice;
+    dialogInvoice.addInvoiceSupplier();
+    dialogInvoice.exec();
 }
 
 void DialogSupplier::on_pushButtonAddSupplier_clicked()
 {
- DialogAdd a;
- a.exec();
+ DialogAdd dialogAddSupplier;
+ dialogAddSupplier.addSupplier();
+ dialogAddSupplier.exec();
 }
 
 void DialogSupplier::on_pushButtonBack_clicked()

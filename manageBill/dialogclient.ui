@@ -408,7 +408,7 @@ color: rgb(32, 74, 135);</string>
       <number>150</number>
      </attribute>
      <attribute name="verticalHeaderVisible">
-      <bool>true</bool>
+      <bool>false</bool>
      </attribute>
      <column>
       <property name="text">
@@ -453,6 +453,11 @@ color: rgb(32, 74, 135);</string>
      <column>
       <property name="text">
        <string>Country</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Language</string>
       </property>
      </column>
      <column>

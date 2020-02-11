@@ -14,6 +14,9 @@ class DialogAddInvoice : public QDialog
 public:
     explicit DialogAddInvoice(QWidget *parent = 0);
     ~DialogAddInvoice();
+    void addInvoiceClient();
+    void addInvoiceSupplier();
+    void addInvoiceEmployee();
 
 private slots:
     void on_pushButtonAdd_clicked();

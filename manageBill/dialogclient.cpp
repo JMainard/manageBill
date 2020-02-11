@@ -25,14 +25,16 @@ DialogClient::~DialogClient()
 
 void DialogClient::on_pushButtonAddClient_clicked()
 {
-  DialogAdd a;
-  a.exec();
+  DialogAdd dialogAddClient;
+  dialogAddClient.addClient();
+  dialogAddClient.exec();
 }
 
 void DialogClient::on_pushButtonAddInvoice_clicked()
 {
- DialogAddInvoice a;
- a.exec();
+ DialogAddInvoice dialogAddInvoice;
+ dialogAddInvoice.addInvoiceClient();
+ dialogAddInvoice.exec();
 }
 
 /**
@@ -51,7 +53,7 @@ void DialogClient::on_pushButtonSearch_clicked()
     case 2:
         if (ui->checkBoxCompanyClient->isChecked()==true) {
 qDebug() << "Je suis dans  company client VAT ";
-            QString requestCCV=("select  vCliCompanyName, vCliVatNumber, vCliEmail, vCliPhone,vCliMobilPhone, vCliStreet , vCliCity , vCliPostCode , vCliCountry, vCliDoyNumber from vCompanyClient where vCliVatNumber like '%"+ui->lineEditSearch->text()+"%';");
+            QString requestCCV=("select  vCliCompanyName, vCliVatNumber, vCliEmail, vCliPhone,vCliMobilPhone, vCliStreet , vCliCity , vCliPostCode , vCliCountry, vClWording, vCliDoyNumber from vCompanyClient where vCliVatNumber like '%"+ui->lineEditSearch->text()+"%';");
 //qDebug() << requestCCV;
             QSqlQuery requestCompanyClientVAT(requestCCV);
             int numLigne=0;
@@ -69,6 +71,7 @@ qDebug() << "Je suis dans  company client VAT ";
               QString cliCity= requestCompanyClientVAT.value("vCliCity").toString();
               QString cliPostCode= requestCompanyClientVAT.value("vCliPostCode").toString();
               QString cliCountry= requestCompanyClientVAT.value("vCliCountry").toString();
+              QString language = requestCompanyClientVAT.value("vClWording").toString();
               QString cliDoyNumber= requestCompanyClientVAT.value("vCliDoyNumber").toString();
 
               //We set the different data in the good column/
@@ -81,7 +84,8 @@ qDebug() << "Je suis dans  company client VAT ";
               ui->tableWidgetClient->setItem(numLigne,6,new QTableWidgetItem (cliCity));
               ui->tableWidgetClient->setItem(numLigne,7,new QTableWidgetItem (cliPostCode));
               ui->tableWidgetClient->setItem(numLigne,8,new QTableWidgetItem (cliCountry));
-              ui->tableWidgetClient->setItem(numLigne,9,new QTableWidgetItem (cliDoyNumber));
+              ui->tableWidgetClient->setItem(numLigne,9,new QTableWidgetItem (language));
+              ui->tableWidgetClient->setItem(numLigne,10,new QTableWidgetItem (cliDoyNumber));
 
 
               numLigne++; //we change of row so we add a new for the next client
@@ -91,7 +95,7 @@ qDebug() << "Je suis dans  company client VAT ";
         }
         else{
 qDebug()<< "Je suis dans individual Client VAT";
-            QString requestICV=("select vCliFamilyName, vCliFirstName, vCliVatNumber, vCliEmail, vCliPhone, vCliMobilPhone, vCliStreet, vCliCity, vCliPostCode, vCliCountry, vCliDoyNumber from vIndividualClient where vCliVatNumber like '%"+ui->lineEditSearch->text()+"%';" );
+            QString requestICV=("select vCliFamilyName, vCliFirstName, vCliVatNumber, vCliEmail, vCliPhone, vCliMobilPhone, vCliStreet, vCliCity, vCliPostCode, vCliCountry, vClWording, vCliDoyNumber from vIndividualClient where vCliVatNumber like '%"+ui->lineEditSearch->text()+"%';" );
             QSqlQuery requestIndividualClientVAT(requestICV);
 //qDebug()<< requestICV;
 
@@ -111,10 +115,11 @@ qDebug()<< "Je suis dans individual Client VAT";
               QString cliCity= requestIndividualClientVAT.value("vCliCity").toString();
               QString cliPostCode= requestIndividualClientVAT.value("vCliPostCode").toString();
               QString cliCountry= requestIndividualClientVAT.value("vCliCountry").toString();
+              QString language = requestIndividualClientVAT.value("vClWording").toString();
               QString cliDoyNumber= requestIndividualClientVAT.value("vCliDoyNumber").toString();
 
               //We set the different data in the good column/
-              ui->tableWidgetClient->setItem(numLigne,0,new QTableWidgetItem (cliFamilyName + cliFirstName)); //set Order for the item in tableWidget
+              ui->tableWidgetClient->setItem(numLigne,0,new QTableWidgetItem (cliFamilyName +" "+cliFirstName)); //set Order for the item in tableWidget
               ui->tableWidgetClient->setItem(numLigne,1,new QTableWidgetItem (cliVatNumber));
               ui->tableWidgetClient->setItem(numLigne,2,new QTableWidgetItem (cliEmail));
               ui->tableWidgetClient->setItem(numLigne,3,new QTableWidgetItem (cliPhone));
@@ -123,8 +128,8 @@ qDebug()<< "Je suis dans individual Client VAT";
               ui->tableWidgetClient->setItem(numLigne,6,new QTableWidgetItem (cliCity));
               ui->tableWidgetClient->setItem(numLigne,7,new QTableWidgetItem (cliPostCode));
               ui->tableWidgetClient->setItem(numLigne,8,new QTableWidgetItem (cliCountry));
-              ui->tableWidgetClient->setItem(numLigne,9,new QTableWidgetItem (cliDoyNumber));
-
+              ui->tableWidgetClient->setItem(numLigne,9,new QTableWidgetItem (language));
+              ui->tableWidgetClient->setItem(numLigne,10,new QTableWidgetItem (cliDoyNumber));
 
               numLigne++; //we change of row so we add a new for the next client
 
@@ -136,7 +141,7 @@ qDebug()<< "Je suis dans individual Client VAT";
 qDebug()<<"case 1 ";
         if (ui->checkBoxCompanyClient->isChecked()==true) {
 qDebug()<< "Je suis dans company Client Name ";
-            QString requestCCN=("select vCliCompanyName, vCliVatNumber, vCliEmail, vCliPhone,vCliMobilPhone, vCliStreet , vCliCity , vCliPostCode , vCliCountry, vCliDoyNumber from vCompanyClient where vCliCompanyName like '%"+ui->lineEditSearch->text()+"%';");
+            QString requestCCN=("select vCliCompanyName, vCliVatNumber, vCliEmail, vCliPhone,vCliMobilPhone, vCliStreet , vCliCity , vCliPostCode , vCliCountry, vClWording, vCliDoyNumber from vCompanyClient where vCliCompanyName like '%"+ui->lineEditSearch->text()+"%';");
             QSqlQuery requestCompanyClientName(requestCCN);
 qDebug()<<requestCCN;
 
@@ -155,6 +160,7 @@ qDebug()<<requestCCN;
               QString cliCity= requestCompanyClientName.value("vCliCity").toString();
               QString cliPostCode= requestCompanyClientName.value("vCliPostCode").toString();
               QString cliCountry= requestCompanyClientName.value("vCliCountry").toString();
+              QString language= requestCompanyClientName.value("vClWording").toString();
               QString cliDoyNumber= requestCompanyClientName.value("vCliDoyNumber").toString();
 
               //We set the different data in the good column/
@@ -167,7 +173,8 @@ qDebug()<<requestCCN;
               ui->tableWidgetClient->setItem(numLigne,6,new QTableWidgetItem (cliCity));
               ui->tableWidgetClient->setItem(numLigne,7,new QTableWidgetItem (cliPostCode));
               ui->tableWidgetClient->setItem(numLigne,8,new QTableWidgetItem (cliCountry));
-              ui->tableWidgetClient->setItem(numLigne,9,new QTableWidgetItem (cliDoyNumber));
+              ui->tableWidgetClient->setItem(numLigne,9,new QTableWidgetItem (language));
+              ui->tableWidgetClient->setItem(numLigne,10,new QTableWidgetItem (cliDoyNumber));
 
 
               numLigne++; //we change of row so we add a new for the next client
@@ -177,7 +184,7 @@ qDebug()<<requestCCN;
         }
         else{
 qDebug() <<"Je suis dans individual client Name";
-            QString requestICN=("select  vCliFamilyName, vCliFirstName, vCliVatNumber, vCliEmail, vCliPhone,vCliMobilPhone, vCliStreet , vCliCity , vCliPostCode , vCliCountry, vCliDoyNumber from vIndividualClient where vCliFirstName like '%"+ui->lineEditSearch->text()+"%';");
+            QString requestICN=("select  vCliFamilyName, vCliFirstName, vCliVatNumber, vCliEmail, vCliPhone,vCliMobilPhone, vCliStreet , vCliCity , vCliPostCode , vCliCountry, vClWording,vCliDoyNumber from vIndividualClient where vCliFirstName like '%"+ui->lineEditSearch->text()+"%';");
             QSqlQuery requestIndividualClientName(requestICN);
 //qDebug() << requestICN;
 
@@ -197,10 +204,11 @@ qDebug() <<"Je suis dans individual client Name";
               QString cliCity= requestIndividualClientName.value("vCliCity").toString();
               QString cliPostCode= requestIndividualClientName.value("vCliPostCode").toString();
               QString cliCountry= requestIndividualClientName.value("vCliCountry").toString();
+              QString language= requestIndividualClientName.value("vClWording").toString();
               QString cliDoyNumber= requestIndividualClientName.value("vCliDoyNumber").toString();
 
               //We set the different data in the good column/
-              ui->tableWidgetClient->setItem(numLigne,0,new QTableWidgetItem (cliFamilyName + cliFirstName)); //set Order for the item in tableWidget
+              ui->tableWidgetClient->setItem(numLigne,0,new QTableWidgetItem (cliFamilyName +" "+cliFirstName)); //set Order for the item in tableWidget
               ui->tableWidgetClient->setItem(numLigne,1,new QTableWidgetItem (cliVatNumber));
               ui->tableWidgetClient->setItem(numLigne,2,new QTableWidgetItem (cliEmail));
               ui->tableWidgetClient->setItem(numLigne,3,new QTableWidgetItem (cliPhone));
@@ -209,7 +217,8 @@ qDebug() <<"Je suis dans individual client Name";
               ui->tableWidgetClient->setItem(numLigne,6,new QTableWidgetItem (cliCity));
               ui->tableWidgetClient->setItem(numLigne,7,new QTableWidgetItem (cliPostCode));
               ui->tableWidgetClient->setItem(numLigne,8,new QTableWidgetItem (cliCountry));
-              ui->tableWidgetClient->setItem(numLigne,9,new QTableWidgetItem (cliDoyNumber));
+              ui->tableWidgetClient->setItem(numLigne,9,new QTableWidgetItem (language));
+              ui->tableWidgetClient->setItem(numLigne,10,new QTableWidgetItem (cliDoyNumber));
 
 
               numLigne++; //we change of row so we add a new for the next client
@@ -219,6 +228,7 @@ qDebug() <<"Je suis dans individual client Name";
 
         }
     }
+    //switch end
 }
 
 void DialogClient::on_pushButtonBack_clicked()
