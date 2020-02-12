@@ -20,7 +20,7 @@ DialogAddProducts::~DialogAddProducts()
 
 void DialogAddProducts::fillComboBoxTOQ()
 {
-    QSqlQuery requestFillTOQ("select vToqId,vToqWording from vTypeOfQuantity;");
+    QSqlQuery requestFillTOQ("select vToqId,vToqWording from vFillTOQ;");
     ui->comboBoxTOQ->addItem("Choose",0);
     while (requestFillTOQ.next()) {
     int toqId = requestFillTOQ.value("vToqId").toInt();

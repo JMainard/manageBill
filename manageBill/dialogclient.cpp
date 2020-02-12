@@ -186,7 +186,7 @@ qDebug()<<requestCCN;
 qDebug() <<"Je suis dans individual client Name";
             QString requestICN=("select  vCliFamilyName, vCliFirstName, vCliVatNumber, vCliEmail, vCliPhone,vCliMobilPhone, vCliStreet , vCliCity , vCliPostCode , vCliCountry, vClWording,vCliDoyNumber from vIndividualClient where vCliFirstName like '%"+ui->lineEditSearch->text()+"%';");
             QSqlQuery requestIndividualClientName(requestICN);
-//qDebug() << requestICN;
+qDebug() << requestICN;
 
             int numLigne=0;
             ui->tableWidgetClient->setRowCount(0);// We set 0 row in the table
@@ -240,7 +240,7 @@ void DialogClient::on_tableWidgetClient_cellDoubleClicked(int row, int column)
 {
 qDebug() << "Table Widget Client doubleClicked ";
     QString invoiceVAT = ui->tableWidgetClient->item(row,1)->text();
-    QString requestInvoice = ("select distinct  vBcId, vBcBillingDate, vBcPaymentDate, vBcTotalAmount, vBcReason, vBcBillPaid from vClientInvoice where vCliVatNumber like'%"+invoiceVAT+"%';");
+    QString requestInvoice = ("select vBcId, vBcBillingDate, vBcPaymentDate, vBcTotalAmount, vBcReason, vBcBillPaid from vClientInvoice where vVatNumber = '"+invoiceVAT+"';");
     QSqlQuery requestInvoiceTable(requestInvoice);
 qDebug() << requestInvoice;
     int line = 0;
@@ -277,8 +277,10 @@ qDebug() <<bcId;
 
 void DialogClient::on_tableWidgetInvoice_cellDoubleClicked(int row, int column)
 {
+qDebug() << " Double clicked Table invoice to show complete invoice";
     //We recup bcId and retake all information to have complete Invoice
-
-    DialogInvoiceComplete a;
-    a.exec();
+    QString idInvoice = ui->tableWidgetInvoice->item(row,0)->text();
+    DialogInvoiceComplete dialogCompleteInvoiceClient;
+    dialogCompleteInvoiceClient.recupId(idInvoice,1); // 1 its for the mod and know if the idInvoice its ofr client,supplier or personnel
+    dialogCompleteInvoiceClient.exec();
 }

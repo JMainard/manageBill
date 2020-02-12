@@ -5,6 +5,7 @@
 #include <QString>
 #include <QSqlQuery>
 #include <QDebug>
+#include "dialoginvoicecomplete.h"
 DialogEmployee::DialogEmployee(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DialogEmployee)
@@ -133,4 +134,14 @@ qDebug() << "Table widget cell select ";
         lines++;
     }
     ui->tableWidgetInvoice->resizeColumnsToContents();
+}
+
+void DialogEmployee::on_tableWidgetInvoice_cellDoubleClicked(int row, int column)
+{
+qDebug() << " Double clicked Table invoice to show complete invoice";
+        //We recup bcId and retake all information to have complete Invoice
+        QString idInvoice = ui->tableWidgetInvoice->item(row,0)->text();
+        DialogInvoiceComplete dialogCompleteInvoiceEmployee;
+        dialogCompleteInvoiceEmployee.recupId(idInvoice,3); // 1 its for the mod and know if the idInvoice its ofr client,supplier or personnel
+        dialogCompleteInvoiceEmployee.exec();
 }

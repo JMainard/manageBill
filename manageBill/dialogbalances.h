@@ -18,6 +18,10 @@ public:
 private slots:
     void on_pushButtonBack_clicked();
 
+    void on_checkBoxGlobal_clicked();
+
+    void on_pushButtonOk_clicked();
+
 private:
     Ui::DialogBalances *ui;
 };

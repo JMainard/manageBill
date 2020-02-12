@@ -26,6 +26,8 @@ private slots:
 
     void on_tableWidgetEmployee_cellDoubleClicked(int row, int column);
 
+    void on_tableWidgetInvoice_cellDoubleClicked(int row, int column);
+
 private:
     Ui::DialogEmployee *ui;
 };

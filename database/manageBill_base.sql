@@ -16,11 +16,11 @@ CREATE TABLE `supplier`(`supId` INTEGER,`supCompanyName` VARCHAR(40),`suPhone` V
 
 CREATE TABLE `personnel`(`perId` INTEGER,`perFirstName` VARCHAR(40),`perFamilyName` VARCHAR(40),`perPhone` VARCHAR(20),`perPhoneMobile` VARCHAR(20),`perStreet` VARCHAR(40),`perPostCode` VARCHAR(15),`perCity` VARCHAR(40),`perEmail` VARCHAR(60),`perVATNumber` VARCHAR(20),`perDOYNumber` VARCHAR(20),`clId` INTEGER NOT NULL,`couId` INTEGER NOT NULL, foreign key (`clId`) references contactLanguage(`clId`), foreign key (`couId`) references country(`couId`),primary key(`perId`));
 
-CREATE TABLE `billClient`(`bcId` INTEGER,`bcBillingDate` DATE,`bcPaymentDate` DATE,`bcTotalAmount` FLOAT,`bcReason` VARCHAR(255),`bcBillPaid` BOOL,`cliId` INTEGER NOT NULL, foreign key (`cliId`) references client(`cliId`),primary key(`bcId`));
+CREATE TABLE `billClient`(`bcId` INTEGER,`bcBillingDate` DATE,`bcPaymentDate` DATE,`bcTotalAmount` FLOAT,`bcReason` VARCHAR(255),`bcBillPaid` BOOL,`bcPDF` VARCHAR(500),`cliId` INTEGER NOT NULL, foreign key (`cliId`) references client(`cliId`),primary key(`bcId`));
 
-CREATE TABLE `billSupplier`(`bsId` INTEGER,`bsBillingDate` DATE,`bsPaymentDate` DATE,`bsTotalAmount` FLOAT,`bsReason` VARCHAR(255),`bsBillPaid` BOOL,`supId` INTEGER NOT NULL, foreign key (`supId`) references supplier(`supId`),primary key(`bsId`));
+CREATE TABLE `billSupplier`(`bsId` INTEGER,`bsBillingDate` DATE,`bsPaymentDate` DATE,`bsTotalAmount` FLOAT,`bsReason` VARCHAR(255),`bsBillPaid` BOOL,`bsPDF` VARCHAR(500),`supId` INTEGER NOT NULL, foreign key (`supId`) references supplier(`supId`),primary key(`bsId`));
 
-CREATE TABLE `billPersonnel`(`bpId` INTEGER,`bpBillingDate` DATE,`bpPaymentDate` DATE,`bpTotalAmount` FLOAT,`bpReason` VARCHAR(255),`bpBilllPaid` BOOL,`perId` INTEGER NOT NULL, foreign key (`perId`) references personnel(`perId`),primary key(`bpId`));
+CREATE TABLE `billPersonnel`(`bpId` INTEGER,`bpBillingDate` DATE,`bpPaymentDate` DATE,`bpTotalAmount` FLOAT,`bpReason` VARCHAR(255),`bpBilllPaid` BOOL,`bpPDF` VARCHAR(500),`perId` INTEGER NOT NULL, foreign key (`perId`) references personnel(`perId`),primary key(`bpId`));
 
 CREATE TABLE `products`(`prodId` INTEGER,`prodWording` VARCHAR(50),`catId` INTEGER ,`sCatId` INTEGER ,`toqId` INTEGER NOT NULL, foreign key (`catId`) references category(`catId`), foreign key (`sCatId`) references subCategory(`sCatId`), foreign key (`toqId`) references typeOfQuantity(`toqId`),primary key(`prodId`));
 

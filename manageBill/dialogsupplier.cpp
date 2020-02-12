@@ -2,6 +2,7 @@
 #include "ui_dialogsupplier.h"
 #include "dialogaddinvoice.h"
 #include "dialogadd.h"
+#include "dialoginvoicecomplete.h"
 #include <QDebug>
 #include <QString>
 #include <QSqlQuery>
@@ -133,4 +134,14 @@ qDebug() << requestInvoiceSupplier;
        }
        ui->tableWidgetInvoice->resizeRowsToContents();
 
+}
+
+void DialogSupplier::on_tableWidgetInvoice_cellDoubleClicked(int row, int column)
+{
+qDebug() << " Double clicked Table invoice to show complete invoice";
+        //We recup bcId and retake all information to have complete Invoice
+        QString idInvoice = ui->tableWidgetInvoice->item(row,0)->text();
+        DialogInvoiceComplete dialogCompleteInvoiceSupplier;
+        dialogCompleteInvoiceSupplier.recupId(idInvoice,2); // 2 its for the mod and know if the idInvoice its ofr client,supplier or personnel
+        dialogCompleteInvoiceSupplier.exec();
 }
