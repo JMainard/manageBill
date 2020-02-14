@@ -26,7 +26,7 @@
   <property name="styleSheet">
    <string notr="true"/>
   </property>
-  <layout class="QGridLayout" name="gridLayout_6">
+  <layout class="QGridLayout" name="gridLayout_8">
    <item row="0" column="0">
     <layout class="QGridLayout" name="gridLayout">
      <item row="0" column="3">
@@ -69,7 +69,24 @@ font: 75 15pt &quot;URW Palladio L&quot;;</string>
     </layout>
    </item>
    <item row="1" column="0">
-    <layout class="QGridLayout" name="gridLayout_3">
+    <layout class="QGridLayout" name="gridLayout_7">
+     <item row="0" column="0">
+      <layout class="QFormLayout" name="formLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="labelFrom">
+         <property name="styleSheet">
+          <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
+         </property>
+         <property name="text">
+          <string>From :</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QDateEdit" name="dateEditFrom"/>
+       </item>
+      </layout>
+     </item>
      <item row="0" column="1">
       <layout class="QFormLayout" name="formLayout_2">
        <item row="0" column="0">
@@ -84,6 +101,40 @@ font: 75 15pt &quot;URW Palladio L&quot;;</string>
        </item>
        <item row="1" column="0">
         <widget class="QDateEdit" name="dateEditTo"/>
+       </item>
+      </layout>
+     </item>
+     <item row="0" column="2">
+      <layout class="QGridLayout" name="gridLayout_6">
+       <item row="0" column="0">
+        <widget class="QCheckBox" name="checkBoxGlobal">
+         <property name="styleSheet">
+          <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Global Balance</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <layout class="QGridLayout" name="gridLayout_3">
+         <item row="0" column="0">
+          <widget class="QComboBox" name="comboBoxCategory"/>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="labelVAT">
+           <property name="styleSheet">
+            <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
+           </property>
+           <property name="text">
+            <string>VAT  :</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLineEdit" name="lineEditVAT"/>
+         </item>
+        </layout>
        </item>
       </layout>
      </item>
@@ -107,50 +158,6 @@ font: 75 15pt &quot;URW Palladio L&quot;;</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="0">
-      <layout class="QFormLayout" name="formLayout">
-       <item row="0" column="0">
-        <widget class="QLabel" name="labelFrom">
-         <property name="styleSheet">
-          <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
-         </property>
-         <property name="text">
-          <string>From :</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QDateEdit" name="dateEditFrom"/>
-       </item>
-      </layout>
-     </item>
-     <item row="0" column="2">
-      <layout class="QFormLayout" name="formLayout_3">
-       <item row="1" column="0">
-        <widget class="QLabel" name="labelVAT">
-         <property name="styleSheet">
-          <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
-         </property>
-         <property name="text">
-          <string>VAT  :</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QLineEdit" name="lineEditVAT"/>
-       </item>
-       <item row="0" column="0" colspan="2">
-        <widget class="QCheckBox" name="checkBoxGlobal">
-         <property name="styleSheet">
-          <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
-         </property>
-         <property name="text">
-          <string>Global Balance</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
     </layout>
    </item>
    <item row="2" column="0">
@@ -160,8 +167,20 @@ font: 75 15pt &quot;URW Palladio L&quot;;</string>
        <property name="sizeAdjustPolicy">
         <enum>QAbstractScrollArea::AdjustToContents</enum>
        </property>
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <property name="selectionMode">
+        <enum>QAbstractItemView::SingleSelection</enum>
+       </property>
+       <property name="selectionBehavior">
+        <enum>QAbstractItemView::SelectRows</enum>
+       </property>
        <attribute name="horizontalHeaderDefaultSectionSize">
         <number>150</number>
+       </attribute>
+       <attribute name="verticalHeaderVisible">
+        <bool>true</bool>
        </attribute>
        <column>
         <property name="text">
@@ -184,6 +203,15 @@ font: 75 15pt &quot;URW Palladio L&quot;;</string>
       <widget class="QTableWidget" name="tableWidgetMinus">
        <property name="sizeAdjustPolicy">
         <enum>QAbstractScrollArea::AdjustToContents</enum>
+       </property>
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <property name="selectionMode">
+        <enum>QAbstractItemView::SingleSelection</enum>
+       </property>
+       <property name="selectionBehavior">
+        <enum>QAbstractItemView::SelectRows</enum>
        </property>
        <attribute name="horizontalHeaderDefaultSectionSize">
         <number>150</number>
@@ -309,8 +337,8 @@ font: 75 16pt &quot;URW Palladio L&quot;;</string>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>460</x>
-     <y>78</y>
+     <x>459</x>
+     <y>73</y>
      <width>16</width>
      <height>17</height>
     </rect>
