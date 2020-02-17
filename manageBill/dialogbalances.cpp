@@ -46,6 +46,15 @@ void DialogBalances::on_checkBoxGlobal_clicked()
 
 void DialogBalances::on_pushButtonOk_clicked()
 {
+    //Clear contents of table minus and plus
+    //and clear label
+    ui->tableWidgetMinus->clearContents();
+    ui->tableWidgetMinus->setRowCount(0);
+
+    ui->tableWidgetPlus->clearContents();
+    ui->tableWidgetPlus->setRowCount(0);
+    ui->labelTitle->clear();
+    //We get var choose  by user
     QString dateStart = ui->dateEditFrom->date().toString("yyyy-MM-dd");
     QString dateEnd = ui->dateEditTo->date().toString("yyyy-MM-dd");
     QString balanceIndividual;
@@ -58,10 +67,11 @@ qDebug() << "GLOBAL BALANCE :";
         //3 requests
         QString clientInvoice = ("select vBcBillingDate, vBcPaymentDate, vBcTotalAmount from vClientInvoice where vBcBillingDate between '"+dateStart+"' and '"+dateEnd+"';");
         QString supplierInvoice = ("select vBsBillingDate, vBsPaymentDate, vBsTotalAmount from vSupplierInvoice where vBsBillingDate between '"+dateStart+"' and '"+dateEnd+"';");
-        QString employeeInvoice = ("select vBpBillingDate, vBpPaymentDate, vBpTotalAmount from vPersonnelInvoice where vBpBillingDate between '"+dateStart+"' and '"+dateEnd+"';");
+        QString employeeInvoice = ("select vBpBillingDate, vBpPaymentDate, vBpTotalAmount from vEmployeeInvoice where vBpBillingDate between '"+dateStart+"' and '"+dateEnd+"';");
 
         fillTablePlus(clientInvoice);
         fillTableMinusGlobal(supplierInvoice, employeeInvoice);
+        fillTTInvoiceGlobal(dateStart,dateEnd);
     }else
     {
         //So we search by employee or supplier or Client and know how many you loose
@@ -77,16 +87,16 @@ qDebug() << "GLOBAL BALANCE :";
          }break;
          case 2:{
             //Supplier so in the right table and result will be negativ with bill paid or not paid
-            balanceIndividual = ("select vBsBillingDate, vBsPaymentDate, vBcTotalAmount from vSupplierInvoice where vVatNumber like  '%"+vatNumber+"%' and vBsBillingDate between '"+dateStart+"' and '"+dateEnd+"';");
+            balanceIndividual = ("select vBsBillingDate, vBsPaymentDate, vBsTotalAmount from vSupplierInvoice where vVatNumber like  '%"+vatNumber+"%' and vBsBillingDate between '"+dateStart+"' and '"+dateEnd+"';");
             fillTableMinus(balanceIndividual);
             ttInvoice = ("select sum(bsTotalAmount) as ttInvoice from billSupplier inner join supplier on supplier.supId=billSupplier.supId where supVATNumber like '%"+vatNumber+"%' and bsBillingDate between '"+dateStart+"' and '"+dateEnd+"'");
             fillTTInvoice(ttInvoice);
          }break;
          case 3:{
             //Employee so int the right table and result will be negativ with bill paid or not paid
-            balanceIndividual = ("select vBpBillingDate, vBpPaymentDate, vBpTotalAmount from vPersonnelInvoice where vVatNumber like  '%"+vatNumber+"%' and vBpBillingDate between '"+dateStart+"' and '"+dateEnd+"';");
+            balanceIndividual = ("select vBpBillingDate, vBpPaymentDate, vBpTotalAmount from vEmployeeInvoice where vPerVatNumber like  '%"+vatNumber+"%' and vBpBillingDate between '"+dateStart+"' and '"+dateEnd+"';");
             fillTableMinus(balanceIndividual);
-            ttInvoice = ("select sum(bpTotalAmount) as ttInvoice fom billPersonnel inner join personnel on personnel.perId=billPersonnel.perId whete perVATNumber like '%"+vatNumber+"%' and bpBillingDate between '"+dateStart+"' and '"+dateEnd+"' ");
+            ttInvoice = ("select sum(bpTotalAmount) as ttInvoice from billPersonnel inner join personnel on personnel.perId=billPersonnel.perId where perVATNumber like '%"+vatNumber+"%' and bpBillingDate between '"+dateStart+"' and '"+dateEnd+"' ");
             fillTTInvoice(ttInvoice);
          }break;
          }
@@ -140,6 +150,7 @@ qDebug() << request;
 void DialogBalances::fillTTInvoice(QString request)
 {
 qDebug() << "fill total Invoice ";
+qDebug() << request;
     QSqlQuery requestTTInvoice(request);
     requestTTInvoice.next();
     QString total = requestTTInvoice.value("ttInvoice").toString();
@@ -166,29 +177,56 @@ qDebug() << "Request employee : "<<requestEmp;
     ui->tableWidgetMinus->setRowCount(0);
     QSqlQuery requestFillTableSup (requestSup);
     while (requestFillTableSup.next()){
-        ui->tableWidgetPlus->setRowCount(ui->tableWidgetPlus->rowCount()+1);
+        ui->tableWidgetMinus->setRowCount(ui->tableWidgetMinus->rowCount()+1);
         QString billingDate = requestFillTableSup.value(0).toString();
         QString paymentDate = requestFillTableSup.value(1).toString();
         QString totalAmount = requestFillTableSup.value(2).toString();
 
-        ui->tableWidgetPlus->setItem(lines,0,new QTableWidgetItem(billingDate));
-        ui->tableWidgetPlus->setItem(lines,1,new QTableWidgetItem(paymentDate));
-        ui->tableWidgetPlus->setItem(lines,2,new QTableWidgetItem(totalAmount));
+        ui->tableWidgetMinus->setItem(lines,0,new QTableWidgetItem(billingDate));
+        ui->tableWidgetMinus->setItem(lines,1,new QTableWidgetItem(paymentDate));
+        ui->tableWidgetMinus->setItem(lines,2,new QTableWidgetItem(totalAmount));
         lines++;
     }
     QSqlQuery requestFillTableEmp (requestEmp);
     while (requestFillTableEmp.next()){
-        ui->tableWidgetPlus->setRowCount(ui->tableWidgetPlus->rowCount()+1);
+        ui->tableWidgetMinus->setRowCount(ui->tableWidgetMinus->rowCount()+1);
         QString billingDate = requestFillTableEmp.value(0).toString();
         QString paymentDate = requestFillTableEmp.value(1).toString();
         QString totalAmount = requestFillTableEmp.value(2).toString();
 
-        ui->tableWidgetPlus->setItem(lines,0,new QTableWidgetItem(billingDate));
-        ui->tableWidgetPlus->setItem(lines,1,new QTableWidgetItem(paymentDate));
-        ui->tableWidgetPlus->setItem(lines,2,new QTableWidgetItem(totalAmount));
+        ui->tableWidgetMinus->setItem(lines,0,new QTableWidgetItem(billingDate));
+        ui->tableWidgetMinus->setItem(lines,1,new QTableWidgetItem(paymentDate));
+        ui->tableWidgetMinus->setItem(lines,2,new QTableWidgetItem(totalAmount));
         lines++;
     }
     ui->tableWidgetMinus->resizeRowsToContents();
+}
+
+void DialogBalances::fillTTInvoiceGlobal(QString dateStart, QString dateEnd)
+{
+    //TO know the result when you check global balances
+    QString ttInvoiceClient = ("select sum(bcTotalAmount) as ttInvoiceClient  from billClient inner join client on client.cliId=billClient.cliId where bcBillingDate between '"+dateStart+"' and '"+dateEnd+"';");
+    QString ttInvoiceSupplier =("select sum(bsTotalAmount) as ttInvoiceSupplier from billSupplier inner join supplier on supplier.supId=billSupplier.supId where bsBillingDate between '"+dateStart+"' and '"+dateEnd+"'");
+    QString ttInvoiceEmployee = ("select sum(bpTotalAmount) as ttInvoiceEmployee from billPersonnel inner join personnel on personnel.perId=billPersonnel.perId where bpBillingDate between '"+dateStart+"' and '"+dateEnd+"' ");
+
+    qDebug() << "fill total Invoice ";
+        QSqlQuery requestTTInvoiceClient(ttInvoiceClient);
+        requestTTInvoiceClient.next();
+        int totalClient = requestTTInvoiceClient.value("ttInvoiceClient").toInt();
+
+        QSqlQuery requestTTInvoiceSupplier(ttInvoiceSupplier);
+        requestTTInvoiceSupplier.next();
+        int totalSupplier = requestTTInvoiceSupplier.value("ttInvoiceSupplier").toInt();
+
+        QSqlQuery requestTTInvoiceEmployee(ttInvoiceEmployee);
+        requestTTInvoiceEmployee.next();
+        int totalEmployee = requestTTInvoiceEmployee.value("ttInvoiceEmployee").toInt();
+
+        int total  = totalClient - (totalEmployee +totalSupplier);
+        QString Total = QString::number(total);
+        ui->labelResult->setText(Total);
+
+
 }
 
 

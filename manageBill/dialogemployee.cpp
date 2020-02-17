@@ -94,7 +94,7 @@ void DialogEmployee::on_pushButtonAddEmployee_clicked()
 void DialogEmployee::on_pushButtonAddSalary_clicked()
 {
     DialogAddInvoice dialogAddInvoice;
-    dialogAddInvoice.addInvoiceEmployee();
+    dialogAddInvoice.addInvoice(3);
     dialogAddInvoice.exec();
 }
 

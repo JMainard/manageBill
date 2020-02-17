@@ -34,6 +34,8 @@ private slots:
 
     void fillTableMinusGlobal(QString requestSup, QString requestEmp);
 
+    void fillTTInvoiceGlobal(QString dateStart, QString dateEnd);
+
 private:
     Ui::DialogBalances *ui;
 };

@@ -33,7 +33,7 @@ void DialogClient::on_pushButtonAddClient_clicked()
 void DialogClient::on_pushButtonAddInvoice_clicked()
 {
  DialogAddInvoice dialogAddInvoice;
- dialogAddInvoice.addInvoiceClient();
+ dialogAddInvoice.addInvoice(1);
  dialogAddInvoice.exec();
 }
 

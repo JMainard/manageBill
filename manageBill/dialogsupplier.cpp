@@ -24,7 +24,7 @@ DialogSupplier::~DialogSupplier()
 void DialogSupplier::on_pushButtonAddInvoice_clicked()
 {
     DialogAddInvoice dialogInvoice;
-    dialogInvoice.addInvoiceSupplier();
+    dialogInvoice.addInvoice(2);
     dialogInvoice.exec();
 }
 
