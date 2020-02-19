@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>350</width>
-    <height>490</height>
+    <width>410</width>
+    <height>570</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -19,26 +19,129 @@
   <property name="windowTitle">
    <string>manageBill add product for invoice </string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_7">
-   <item row="4" column="0" colspan="2">
-    <layout class="QGridLayout" name="gridLayout_2">
+  <layout class="QGridLayout" name="gridLayout_9">
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="gridLayout_8">
      <item row="0" column="0">
-      <widget class="QLabel" name="labelNetPrice">
+      <widget class="QLabel" name="label_2">
        <property name="styleSheet">
         <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
 color: rgb(32, 74, 135);</string>
        </property>
        <property name="text">
-        <string>Net Price :</string>
+        <string>Category : </string>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLineEdit" name="lineEdit"/>
+      <widget class="QComboBox" name="comboBoxCategory"/>
      </item>
     </layout>
    </item>
-   <item row="3" column="0" colspan="2">
+   <item row="1" column="0">
+    <layout class="QGridLayout" name="gridLayout_7">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="styleSheet">
+        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
+color: rgb(32, 74, 135);</string>
+       </property>
+       <property name="text">
+        <string>Sub Category :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QComboBox" name="comboBoxSubCategory"/>
+     </item>
+    </layout>
+   </item>
+   <item row="2" column="0">
+    <layout class="QGridLayout" name="gridLayout_6">
+     <item row="0" column="0">
+      <widget class="QLabel" name="labelSelect">
+       <property name="styleSheet">
+        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
+color: rgb(32, 74, 135);</string>
+       </property>
+       <property name="text">
+        <string>Product : </string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QComboBox" name="comboBoxProduct"/>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLabel" name="labelOr">
+       <property name="styleSheet">
+        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Or</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QPushButton" name="pushButtonAddProduct">
+       <property name="styleSheet">
+        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
+</string>
+       </property>
+       <property name="text">
+        <string>&amp;Add Product</string>
+       </property>
+       <property name="icon">
+        <iconset resource="icon.qrc">
+         <normaloff>:/icon/image/add24.png</normaloff>:/icon/image/add24.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="3" column="0">
+    <layout class="QGridLayout" name="gridLayout_5">
+     <item row="0" column="0">
+      <widget class="QLabel" name="labelQuantity">
+       <property name="styleSheet">
+        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
+color: rgb(32, 74, 135);</string>
+       </property>
+       <property name="text">
+        <string>Quantity :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="lineEditQuantity"/>
+     </item>
+    </layout>
+   </item>
+   <item row="4" column="0">
+    <layout class="QGridLayout" name="gridLayout_4">
+     <item row="0" column="0">
+      <widget class="QLabel" name="labelPrice">
+       <property name="styleSheet">
+        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
+color: rgb(32, 74, 135);</string>
+       </property>
+       <property name="text">
+        <string>Price :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="lineEditPrice"/>
+     </item>
+    </layout>
+   </item>
+   <item row="5" column="0">
     <layout class="QGridLayout" name="gridLayout_3">
      <item row="0" column="0">
       <widget class="QLabel" name="labelVAT">
@@ -56,7 +159,25 @@ color: rgb(32, 74, 135);</string>
      </item>
     </layout>
    </item>
-   <item row="5" column="0" colspan="3">
+   <item row="6" column="0">
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0">
+      <widget class="QLabel" name="labelNetPrice">
+       <property name="styleSheet">
+        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
+color: rgb(32, 74, 135);</string>
+       </property>
+       <property name="text">
+        <string>Net Price :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="lineEditNetPrice"/>
+     </item>
+    </layout>
+   </item>
+   <item row="7" column="0">
     <layout class="QGridLayout" name="gridLayout">
      <item row="0" column="0">
       <widget class="QPushButton" name="pushButtonBack">
@@ -125,91 +246,6 @@ color: rgb(32, 74, 135);</string>
         </size>
        </property>
       </spacer>
-     </item>
-    </layout>
-   </item>
-   <item row="1" column="0" colspan="2">
-    <layout class="QGridLayout" name="gridLayout_5">
-     <item row="0" column="0">
-      <widget class="QLabel" name="labelQuantity">
-       <property name="styleSheet">
-        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
-color: rgb(32, 74, 135);</string>
-       </property>
-       <property name="text">
-        <string>Quantity :</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="lineEditQuantity"/>
-     </item>
-    </layout>
-   </item>
-   <item row="2" column="0" colspan="2">
-    <layout class="QGridLayout" name="gridLayout_4">
-     <item row="0" column="0">
-      <widget class="QLabel" name="labelPrice">
-       <property name="styleSheet">
-        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
-color: rgb(32, 74, 135);</string>
-       </property>
-       <property name="text">
-        <string>Price :</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="lineEditPrice"/>
-     </item>
-    </layout>
-   </item>
-   <item row="0" column="0" colspan="3">
-    <layout class="QGridLayout" name="gridLayout_6">
-     <item row="0" column="0">
-      <widget class="QLabel" name="labelSelect">
-       <property name="styleSheet">
-        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
-color: rgb(32, 74, 135);</string>
-       </property>
-       <property name="text">
-        <string>Select :</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QComboBox" name="comboBoxProduct"/>
-     </item>
-     <item row="0" column="2">
-      <widget class="QLabel" name="labelOr">
-       <property name="styleSheet">
-        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
-       </property>
-       <property name="text">
-        <string>Or</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="3">
-      <widget class="QPushButton" name="pushButtonAddProduct">
-       <property name="styleSheet">
-        <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
-</string>
-       </property>
-       <property name="text">
-        <string>&amp;Add Product</string>
-       </property>
-       <property name="icon">
-        <iconset resource="icon.qrc">
-         <normaloff>:/icon/image/add24.png</normaloff>:/icon/image/add24.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>24</width>
-         <height>24</height>
-        </size>
-       </property>
-      </widget>
      </item>
     </layout>
    </item>

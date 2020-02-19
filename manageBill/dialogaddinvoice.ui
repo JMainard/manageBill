@@ -82,7 +82,7 @@ color: rgb(32, 74, 135);</string>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLineEdit" name="lineEdit"/>
+      <widget class="QLineEdit" name="lineEditSearch"/>
      </item>
      <item row="0" column="2">
       <widget class="QPushButton" name="pushButtonSearch">
@@ -139,7 +139,7 @@ color: rgb(32, 74, 135);</string>
    <item row="2" column="0">
     <layout class="QGridLayout" name="gridLayout_3">
      <item row="0" column="0">
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="labelName">
        <property name="styleSheet">
         <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
 </string>
@@ -150,7 +150,7 @@ color: rgb(32, 74, 135);</string>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="labelFirstName">
        <property name="styleSheet">
         <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
 </string>
@@ -370,6 +370,15 @@ color: rgb(32, 74, 135);</string>
      </property>
      <property name="sizeAdjustPolicy">
       <enum>QAbstractScrollArea::AdjustToContents</enum>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
      </property>
      <attribute name="horizontalHeaderDefaultSectionSize">
       <number>125</number>

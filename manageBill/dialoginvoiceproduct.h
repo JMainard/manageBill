@@ -24,6 +24,12 @@ private slots:
 
     void on_pushButtonBack_clicked();
 
+    void fillProduct();
+
+    void on_comboBoxCategory_currentTextChanged(const QString &arg1);
+
+    void on_comboBoxSubCategory_currentTextChanged(const QString &arg1);
+
 private:
     Ui::DialogInvoiceProduct *ui;
 };
