@@ -1,6 +1,6 @@
 #ifndef DIALOGINVOICEPRODUCT_H
 #define DIALOGINVOICEPRODUCT_H
-
+#include "dialogaddinvoice.h"
 #include <QDialog>
 
 namespace Ui {

@@ -35,9 +35,8 @@ void DialogInvoiceProduct::on_pushButtonAddInvoice_clicked()
     QString price = ui->lineEditPrice->text();
     QString idVat = ui->comboBoxVAT->currentData().toString();
     QString netPrice = ui->lineEditNetPrice->text();
-    DialogAddInvoice a;
-            a.fillTableProduct(idProd, quantity, price, idVat, netPrice);
-
+    DialogAddInvoice::fillTableProduct(idProd, quantity, price, idVat, netPrice);
+    this->accept();
 qDebug() << "Start the fill ";
 }
 

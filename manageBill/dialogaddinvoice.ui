@@ -26,7 +26,7 @@
    <iconset resource="icon.qrc">
     <normaloff>:/icon/image/receipt16.png</normaloff>:/icon/image/receipt16.png</iconset>
   </property>
-  <layout class="QGridLayout" name="gridLayout_12">
+  <layout class="QGridLayout" name="gridLayout_31">
    <item row="0" column="0">
     <layout class="QGridLayout" name="gridLayout_8">
      <item row="0" column="0">
@@ -271,60 +271,7 @@ color: rgb(32, 74, 135);</string>
     </layout>
    </item>
    <item row="6" column="0">
-    <layout class="QGridLayout" name="gridLayout_11">
-     <item row="0" column="0">
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="0" column="1">
-      <widget class="QPushButton" name="pushButtonAddProduct">
-       <property name="minimumSize">
-        <size>
-         <width>175</width>
-         <height>35</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">font: 75 14pt &quot;URW Palladio L&quot;;</string>
-       </property>
-       <property name="text">
-        <string>Add &amp;Product</string>
-       </property>
-       <property name="icon">
-        <iconset resource="icon.qrc">
-         <normaloff>:/icon/image/add24.png</normaloff>:/icon/image/add24.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>24</width>
-         <height>24</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="2">
-      <spacer name="horizontalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-    </layout>
+    <layout class="QGridLayout" name="gridLayout_11"/>
    </item>
    <item row="7" column="0">
     <layout class="QGridLayout" name="gridLayout_5">
@@ -355,65 +302,302 @@ color: rgb(32, 74, 135);</string>
     </layout>
    </item>
    <item row="8" column="0">
-    <widget class="QTableWidget" name="tableWidgetProduct">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>220</height>
-      </size>
-     </property>
-     <property name="cursor" stdset="0">
-      <cursorShape>ArrowCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 75 12pt &quot;URW Palladio L&quot;;</string>
-     </property>
-     <property name="sizeAdjustPolicy">
-      <enum>QAbstractScrollArea::AdjustToContents</enum>
-     </property>
-     <property name="editTriggers">
-      <set>QAbstractItemView::NoEditTriggers</set>
-     </property>
-     <property name="selectionMode">
-      <enum>QAbstractItemView::SingleSelection</enum>
-     </property>
-     <property name="selectionBehavior">
-      <enum>QAbstractItemView::SelectRows</enum>
-     </property>
-     <attribute name="horizontalHeaderDefaultSectionSize">
-      <number>125</number>
-     </attribute>
-     <column>
-      <property name="text">
-       <string>Name</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Quantity</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Price</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>VAT</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>net Price</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Type of quantity</string>
-      </property>
-     </column>
-    </widget>
+    <layout class="QGridLayout" name="gridLayout_30">
+     <item row="0" column="0">
+      <widget class="QTableWidget" name="tableWidgetProduct">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>220</height>
+        </size>
+       </property>
+       <property name="cursor" stdset="0">
+        <cursorShape>ArrowCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 12pt &quot;URW Palladio L&quot;;</string>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QAbstractScrollArea::AdjustToContents</enum>
+       </property>
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <property name="selectionMode">
+        <enum>QAbstractItemView::SingleSelection</enum>
+       </property>
+       <property name="selectionBehavior">
+        <enum>QAbstractItemView::SelectRows</enum>
+       </property>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>125</number>
+       </attribute>
+       <column>
+        <property name="text">
+         <string>Name</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Quantity</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Price</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>VAT</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>net Price</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Type of quantity</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <layout class="QGridLayout" name="gridLayout_29">
+       <item row="1" column="0">
+        <layout class="QGridLayout" name="gridLayout_27">
+         <item row="0" column="0">
+          <widget class="QLabel" name="labelSubCategory">
+           <property name="styleSheet">
+            <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
+color: rgb(32, 74, 135);</string>
+           </property>
+           <property name="text">
+            <string>Sub Category :</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QComboBox" name="comboBoxSCategory"/>
+         </item>
+        </layout>
+       </item>
+       <item row="2" column="0">
+        <layout class="QGridLayout" name="gridLayout_26">
+         <item row="0" column="0">
+          <widget class="QLabel" name="labelSelectProduct">
+           <property name="styleSheet">
+            <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
+color: rgb(32, 74, 135);</string>
+           </property>
+           <property name="text">
+            <string>Product : </string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QComboBox" name="comboBoxProduct_2"/>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="labelOr_3">
+           <property name="styleSheet">
+            <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;</string>
+           </property>
+           <property name="text">
+            <string>Or</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QPushButton" name="pushButtonAddNewProduct">
+           <property name="styleSheet">
+            <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
+</string>
+           </property>
+           <property name="text">
+            <string>&amp;Add Product</string>
+           </property>
+           <property name="icon">
+            <iconset resource="icon.qrc">
+             <normaloff>:/icon/image/add24.png</normaloff>:/icon/image/add24.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="3" column="0">
+        <layout class="QGridLayout" name="gridLayout_25">
+         <item row="0" column="0">
+          <widget class="QLabel" name="labelQuantity_2">
+           <property name="styleSheet">
+            <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
+color: rgb(32, 74, 135);</string>
+           </property>
+           <property name="text">
+            <string>Quantity :</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="lineEditQuantity_2"/>
+         </item>
+        </layout>
+       </item>
+       <item row="4" column="0">
+        <layout class="QGridLayout" name="gridLayout_24">
+         <item row="0" column="0">
+          <widget class="QLabel" name="labelPrice_2">
+           <property name="styleSheet">
+            <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
+color: rgb(32, 74, 135);</string>
+           </property>
+           <property name="text">
+            <string>Price :</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="lineEditPrice_2"/>
+         </item>
+        </layout>
+       </item>
+       <item row="5" column="0">
+        <layout class="QGridLayout" name="gridLayout_23">
+         <item row="0" column="0">
+          <widget class="QLabel" name="labelVAT_2">
+           <property name="styleSheet">
+            <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
+color: rgb(32, 74, 135);</string>
+           </property>
+           <property name="text">
+            <string>VAT :</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QComboBox" name="comboBoxVAT_2"/>
+         </item>
+        </layout>
+       </item>
+       <item row="6" column="0">
+        <layout class="QGridLayout" name="gridLayout_22">
+         <item row="0" column="0">
+          <widget class="QLabel" name="labelNetPrice_3">
+           <property name="styleSheet">
+            <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
+color: rgb(32, 74, 135);</string>
+           </property>
+           <property name="text">
+            <string>Net Price :</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="lineEditNetPrice_3"/>
+         </item>
+        </layout>
+       </item>
+       <item row="7" column="0">
+        <layout class="QGridLayout" name="gridLayout_20">
+         <item row="0" column="1">
+          <spacer name="horizontalSpacer_16">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="0" column="0">
+          <widget class="QPushButton" name="pushButtonSuppr">
+           <property name="styleSheet">
+            <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
+</string>
+           </property>
+           <property name="text">
+            <string>&amp;Back</string>
+           </property>
+           <property name="icon">
+            <iconset resource="icon.qrc">
+             <normaloff>:/icon/image/undo24.png</normaloff>:/icon/image/undo24.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <spacer name="horizontalSpacer_17">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="0" column="2">
+          <widget class="QPushButton" name="pushButtonAddProductToInvoice">
+           <property name="styleSheet">
+            <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
+</string>
+           </property>
+           <property name="text">
+            <string>Add to &amp;invoice </string>
+           </property>
+           <property name="icon">
+            <iconset resource="icon.qrc">
+             <normaloff>:/icon/image/add24.png</normaloff>:/icon/image/add24.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="0">
+        <layout class="QGridLayout" name="gridLayout_28">
+         <item row="0" column="0">
+          <widget class="QLabel" name="labelCategory">
+           <property name="styleSheet">
+            <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
+color: rgb(32, 74, 135);</string>
+           </property>
+           <property name="text">
+            <string>Category : </string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QComboBox" name="comboBoxCategory_2"/>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+    </layout>
    </item>
    <item row="9" column="0">
     <layout class="QGridLayout" name="gridLayout_7">

@@ -34,8 +34,7 @@ SOURCES += \
     dialogaddinvoice.cpp \
     dialogaddproducts.cpp \
     dialogemployee.cpp \
-    dialogadd.cpp \
-    dialoginvoiceproduct.cpp
+    dialogadd.cpp
 
 
 HEADERS += \
@@ -48,8 +47,7 @@ HEADERS += \
     dialogaddinvoice.h \
     dialogaddproducts.h \
     dialogemployee.h \
-    dialogadd.h \
-    dialoginvoiceproduct.h
+    dialogadd.h
 
 
 FORMS += \
@@ -62,8 +60,7 @@ FORMS += \
     dialogaddinvoice.ui \
     dialogaddproducts.ui \
     dialogemployee.ui \
-    dialogadd.ui \
-    dialoginvoiceproduct.ui
+    dialogadd.ui
 
 
 RESOURCES += \
