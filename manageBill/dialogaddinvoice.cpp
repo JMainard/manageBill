@@ -18,6 +18,8 @@ DialogAddInvoice::DialogAddInvoice(QWidget *parent) :
     lines = 0;
     ui->tableWidgetProduct->setRowCount(0);
     ui->pushButtonAdd->setEnabled(false);
+    ui->pushButtonAddPDF->hide();
+    ui->labelCheminPDF->hide();
 }
 
 DialogAddInvoice::~DialogAddInvoice()
@@ -33,8 +35,9 @@ void DialogAddInvoice::addInvoice(int modInvoice)
 void DialogAddInvoice::on_pushButtonAdd_clicked()
 {
     //Get all info from lineEdit
-    QString billingDate = ui->lineEditBillingDate->text();
-    QString paymentDate = ui->lineEditPaymentDate->text();
+    QString billingDate = ui->dateEditStart->date().toString("yyyy-MM-dd");
+    QString paymentDate = ui->dateEditEnd->date().toString("yyyy-MM-dd");
+qDebug() << billingDate << paymentDate;
     QString totalAmount = ui->lineEditTotalAmount->text();
     QString reason = ui->lineEditReason->text();
     QString billPaid;
@@ -45,6 +48,7 @@ void DialogAddInvoice::on_pushButtonAdd_clicked()
         billPaid ="0";
     }
 
+
 qDebug() << "push button add Invoice ";
     switch (mod) {
     case 1:{
@@ -52,39 +56,40 @@ qDebug() << "push button add Invoice ";
         //In first add billClient
         //Second add clientProducts
         //Get id of invoice client
-         QString idInvoiceClient = ("select max(bcId) bcId from billClient ");
+         QString idInvoiceClient = ("select max(bcId)+1 bcId from billClient ");
          QSqlQuery requestIdInvoiceClient (idInvoiceClient);
          requestIdInvoiceClient.next();
          QString idBillClient = requestIdInvoiceClient.value("bcId").toString();
          QString addInvoiceClient =("insert into billClient values("+idBillClient+",'"+billingDate+"','"+paymentDate+"',"+totalAmount+",'"+reason+"',"+billPaid+",' ',"+id+");");
+qDebug() << addInvoiceClient;
          QSqlQuery requestAddInvoiceClient (addInvoiceClient);
          requestAddInvoiceClient.exec();
+         insertProduct(idBillClient);
     }break;
     case 2:{
     //Request to add invoice for a supplier
-        QString idInvoiceSupplier = ("select max(supId) supId from billSupplier" );
+        QString idInvoiceSupplier = ("select max(bsId)+1 bsId from billSupplier" );
         QSqlQuery requestIdInvoiceSupplier (idInvoiceSupplier);
         requestIdInvoiceSupplier.next();
-        QString idBillSupplier = requestIdInvoiceSupplier.value("supId").toString();
+        QString idBillSupplier = requestIdInvoiceSupplier.value("bsId").toString();
         QString addInvoiceSupplier = ("insert into billSupplier values ("+idBillSupplier+",'"+billingDate+"','"+paymentDate+"',"+totalAmount+",'"+reason+"',"+billPaid+",' ',"+id+");");
+qDebug() << addInvoiceSupplier;
         QSqlQuery requestAddInvoiceSupplier (addInvoiceSupplier);
         requestAddInvoiceSupplier.exec();
+        insertProduct(idBillSupplier);
 
     }break;
     case 3:{
     //Request to add invoice for a employee
-        QString idInvoiceEmployee =("select max(perId) perId from billPersonnel");
+        QString idInvoiceEmployee =("select max(bpId)+1 bpId from billPersonnel");
         QSqlQuery requestIdInvoiceEmployee (idInvoiceEmployee);
         requestIdInvoiceEmployee.next();
-        QString idBillEmployee = requestIdInvoiceEmployee.value("perId").toString();
+        QString idBillEmployee = requestIdInvoiceEmployee.value("bpId").toString();
         QString addInvoiceEmployee = ("insert into billPersonnel values ("+idBillEmployee+",'"+billingDate+"','"+paymentDate+"',"+totalAmount+",'"+reason+"',"+billPaid+",' ',"+id+");");
+qDebug() << addInvoiceEmployee;
         QSqlQuery requestAddInvoiceEmployee (addInvoiceEmployee);
         requestAddInvoiceEmployee.exec();
-qDebug() << billingDate;
-qDebug() << paymentDate;
-qDebug() << totalAmount;
-qDebug() << reason;
-qDebug() <<  billPaid;
+        insertProduct(idBillEmployee);
     } break;
 
     }
@@ -130,11 +135,11 @@ qDebug() << "Push button search (client/supplier/employee";
 
     if(requestSearchCient.isNull(false)){
 qDebug() << "Error in client vatNumber";
-        ui->labelName->setText("Error try again pls");
+        ui->labelName->setText("Client not found, try again pls");
         ui->pushButtonAdd->setEnabled(false);
     }
     else{
-        id = requestSearchCient.value("vCliId").toInt();
+        id = requestSearchCient.value("vCliId").toString();
         QString cliCompanyName = requestSearchCient.value("vCliCompanyName").toString();
         QString cliFirstName = requestSearchCient.value("vCliFirstName").toString();
         QString cliFamilyName = requestSearchCient.value("vCliFamilyName").toString();
@@ -150,11 +155,11 @@ qDebug() << "Error in client vatNumber";
         requestSearchSupplier.next();
         if (requestSearchSupplier.isNull(false)){
 qDebug() << "Care error in supplier vatNumber";
-        ui->labelName->setText("Error try again");
+        ui->labelName->setText("Supplier not found, try again pls");
         ui->pushButtonAdd->setEnabled(false);
         }
         else{
-           id = requestSearchSupplier.value("vSupId").toInt();
+           id = requestSearchSupplier.value("vSupId").toString();
            QString supCompanyName = requestSearchSupplier.value("vSupCompanyName").toString();
            ui->labelName->setText(supCompanyName);
            ui->pushButtonAdd->setEnabled(true);
@@ -167,11 +172,11 @@ qDebug() << "Care error in supplier vatNumber";
         requestSearchEmployee.next();
         if (requestSearchEmployee.isNull(false)){
 qDebug() << "Attention il a une erreur";
-          ui->labelName->setText("Retry a correct vatNumber");
+          ui->labelName->setText("Employee not found, try again pls");
           ui->pushButtonAdd->setEnabled(false);
         }
         else{
-        id = requestSearchEmployee.value("vPerId").toInt();
+        id = requestSearchEmployee.value("vPerId").toString();
         QString perFirstName = requestSearchEmployee.value("vPerFirstName").toString();
         QString perFamilyName = requestSearchEmployee.value("vPerFamilyName").toString();
         ui->labelName->setText(perFamilyName);
@@ -234,10 +239,15 @@ void DialogAddInvoice::on_pushButtonAddProductToInvoice_clicked()
 {
 qDebug() << "Add product to table/Invoice : ";
     QString prodName = ui->comboBoxProduct_2->currentText();
-    QString quantity = ui->lineEditPrice_2->text();
+    QString quantity = ui->lineEditQuantity_2->text();
     QString price = ui->lineEditPrice_2->text();
     QString vatPercent = ui->comboBoxVAT_2->currentText();
-    QString netPrice = ui->lineEditNetPrice_3->text();
+    float pricee = price.toInt();
+    float vat = vatPercent.toInt();
+    float percent = vat/100;
+    float c1 = pricee*percent;
+    float c2 = pricee-c1;
+    QString cTT = QString::number(c2);
      //Request to get type of quantity
     QString findToq  =("select vToqWording from vFindToq where vProdId ='"+ui->comboBoxProduct_2->currentData().toString()+"';");
     QSqlQuery requestFindToq(findToq);
@@ -249,7 +259,7 @@ qDebug() << "Add product to table/Invoice : ";
     ui->tableWidgetProduct->setItem(lines,1,new QTableWidgetItem(quantity));
     ui->tableWidgetProduct->setItem(lines,2,new QTableWidgetItem(price));
     ui->tableWidgetProduct->setItem(lines,3,new QTableWidgetItem(vatPercent));
-    ui->tableWidgetProduct->setItem(lines,4,new QTableWidgetItem(netPrice));
+    ui->tableWidgetProduct->setItem(lines,4,new QTableWidgetItem(cTT));
     ui->tableWidgetProduct->setItem(lines,5,new QTableWidgetItem(toqWording));
     lines++;
 }
@@ -276,9 +286,70 @@ void DialogAddInvoice::fillProduct()
         }
 }
 
-void DialogAddInvoice::insertProduct()
+void DialogAddInvoice::insertProduct(QString idOnAdd)
 {
-    //Read the table and add all product to the clientProducts/supplierProducts/personnelProducts ...
+qDebug() << "i'm on insert product";
+qDebug() << "l'id pour la creation de la requete = " << idOnAdd;
+    //switch to know wich request we do client/supplier/employee
+    QString word;
+    switch (mod) {
+    case 1:{
+        //CLient
+        word="clientProducts";
+    }break;
+    case 2:{
+        word="supplierProducts";
+    }break;
+    case 3:{
+        word ="persoProducts";
+    }
+    }
+    //Check row by row on the table and get prodId and vatId
+    int row = ui->tableWidgetProduct->rowCount();
+    int linesChecked = 0;
+qDebug() << "Number of row in the tables " <<row;
+    while(linesChecked!=row){
+        //Get item on row and colum 0 and 3 product name and vat
+        QString prodName = ui->tableWidgetProduct->item(linesChecked,0)->text();
+        QString vatName = ui->tableWidgetProduct->item(linesChecked,3)->text();
+        //Query for get prodId and vatId (in 2 query)
+        QString getProdId =("select vProdId from vGetProdId where vProdWording ='"+prodName+"';");
+        QSqlQuery requestGetProdId (getProdId);
+        requestGetProdId.first();
+        QString prodId = requestGetProdId.value("vProdId").toString();
 
+       QString getVatId = ("select vVatId from vGetVatId where vVatPercent = '"+vatName+"';");
+       QSqlQuery requestGetVatId (getVatId);
+       requestGetVatId.first();
+       QString vatId = requestGetVatId.value("vVatId").toString();
+       QString quantity = ui->tableWidgetProduct->item(linesChecked,1)->text();
+       QString price = ui->tableWidgetProduct->item(linesChecked,2)->text();
+       QString netPrice = ui->tableWidgetProduct->item(linesChecked,4)->text();
+
+        //Request insert into clientProduct/supplierProducts/persoProducts
+       QString addProdToBill =("insert into "+word+" values ("+price+","+quantity+","+netPrice+","+idOnAdd+","+prodId+","+vatId+");");
+qDebug() << addProdToBill;
+        QSqlQuery requestAddProdToBill (addProdToBill);
+        requestAddProdToBill.exec();
+        linesChecked++;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

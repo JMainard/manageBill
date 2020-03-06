@@ -26,7 +26,7 @@
    <iconset resource="icon.qrc">
     <normaloff>:/icon/image/receipt16.png</normaloff>:/icon/image/receipt16.png</iconset>
   </property>
-  <layout class="QGridLayout" name="gridLayout_31">
+  <layout class="QGridLayout" name="gridLayout_12">
    <item row="0" column="0">
     <layout class="QGridLayout" name="gridLayout_8">
      <item row="0" column="0">
@@ -176,7 +176,7 @@ color: rgb(32, 74, 135);</string>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLineEdit" name="lineEditBillingDate"/>
+      <widget class="QDateEdit" name="dateEditStart"/>
      </item>
      <item row="0" column="2">
       <widget class="QLabel" name="labelPaymentDate">
@@ -190,7 +190,7 @@ color: rgb(32, 74, 135);</string>
       </widget>
      </item>
      <item row="0" column="3">
-      <widget class="QLineEdit" name="lineEditPaymentDate"/>
+      <widget class="QDateEdit" name="dateEditEnd"/>
      </item>
     </layout>
    </item>
@@ -488,24 +488,6 @@ color: rgb(32, 74, 135);</string>
         </layout>
        </item>
        <item row="6" column="0">
-        <layout class="QGridLayout" name="gridLayout_22">
-         <item row="0" column="0">
-          <widget class="QLabel" name="labelNetPrice_3">
-           <property name="styleSheet">
-            <string notr="true">font: 75 13pt &quot;URW Palladio L&quot;;
-color: rgb(32, 74, 135);</string>
-           </property>
-           <property name="text">
-            <string>Net Price :</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QLineEdit" name="lineEditNetPrice_3"/>
-         </item>
-        </layout>
-       </item>
-       <item row="7" column="0">
         <layout class="QGridLayout" name="gridLayout_20">
          <item row="0" column="1">
           <spacer name="horizontalSpacer_16">
@@ -657,7 +639,7 @@ color: rgb(32, 74, 135);</string>
     </layout>
    </item>
    <item row="10" column="0">
-    <widget class="QLabel" name="label_3">
+    <widget class="QLabel" name="labelCheminPDF">
      <property name="minimumSize">
       <size>
        <width>600</width>

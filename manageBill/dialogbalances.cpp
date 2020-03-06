@@ -4,6 +4,7 @@
 #include <QVariant>
 #include <QDebug>
 #include <QSqlQuery>
+
 DialogBalances::DialogBalances(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DialogBalances)

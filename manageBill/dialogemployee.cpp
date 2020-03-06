@@ -79,7 +79,7 @@ qDebug() << "button SEARCH ";
 
             lines++;
         }
-        ui->tableWidgetEmployee->resizeColumnsToContents();
+        ui->tableWidgetEmployee->resizeRowsToContents();
 
 }
 

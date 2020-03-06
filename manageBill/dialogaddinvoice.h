@@ -17,7 +17,7 @@ public:
     void addInvoice(int modInvoice);
     int mod;
     int lines;
-    int id ; //SupId/CliId/PerId
+    QString id ; //SupId/CliId/PerId
 
 private slots:
     void on_pushButtonAdd_clicked();
@@ -38,7 +38,7 @@ private slots:
 
     void fillProduct();
 
-    void insertProduct();
+    void insertProduct(QString idOnAdd);
 
 private:
     Ui::DialogAddInvoice *ui;

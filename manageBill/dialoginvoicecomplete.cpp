@@ -10,6 +10,13 @@ DialogInvoiceComplete::DialogInvoiceComplete( QWidget *parent) :
     ui(new Ui::DialogInvoiceComplete)
 {
     ui->setupUi(this);
+   /* if(ui->labelInvoicePaid->text()=="Yes")
+    {
+        ui->pushButtonBillIsPaid->setEnabled(false);
+    }
+    else{
+        ui->pushButtonBillIsPaid->setEnabled(true);
+    }*/
 }
 
 DialogInvoiceComplete::~DialogInvoiceComplete()
@@ -57,6 +64,7 @@ qDebug() << "Bill is paid ";
 qDebug() << update;
     QSqlQuery requestUpdate (update);
     ui->labelInvoicePaid->setText("Yes");
+    ui->pushButtonBillIsPaid->setEnabled(false);
 
 
 }

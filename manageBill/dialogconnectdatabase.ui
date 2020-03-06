@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DialogConnectDatabase</class>
+ <widget class="QDialog" name="DialogConnectDatabase">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>manageBill connexion database</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="icon.qrc">
+    <normaloff>:/icon/image/receipt16.png</normaloff>:/icon/image/receipt16.png</iconset>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_6">
+   <item row="5" column="0">
+    <widget class="QLabel" name="labelMessage">
+     <property name="styleSheet">
+      <string notr="true">color: rgb(204, 0, 0);
+font: 75 14pt &quot;URW Palladio L&quot;;</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <layout class="QGridLayout" name="gridLayout_4">
+     <item row="0" column="0">
+      <widget class="QLabel" name="labelPassword">
+       <property name="styleSheet">
+        <string notr="true">font: 75 12pt &quot;URW Palladio L&quot;;
+color: rgb(32, 74, 135);</string>
+       </property>
+       <property name="text">
+        <string>Password : </string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="lineEditPassword">
+       <property name="styleSheet">
+        <string notr="true">font: 75 12pt &quot;URW Palladio L&quot;;</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="labelTitle">
+     <property name="styleSheet">
+      <string notr="true">font: 75 15pt &quot;URW Palladio L&quot;;
+color:rgb(32, 74, 135)</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Connexion to database&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0">
+      <widget class="QLabel" name="labelDbName">
+       <property name="styleSheet">
+        <string notr="true">font: 75 12pt &quot;URW Palladio L&quot;;
+color: rgb(32, 74, 135);</string>
+       </property>
+       <property name="text">
+        <string>Database Name :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="lineEditDbName">
+       <property name="styleSheet">
+        <string notr="true">font: 75 12pt &quot;URW Palladio L&quot;;</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="labelHostName">
+       <property name="styleSheet">
+        <string notr="true">font: 75 12pt &quot;URW Palladio L&quot;;
+color: rgb(32, 74, 135);</string>
+       </property>
+       <property name="text">
+        <string>Host Name : </string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="lineEditHostName">
+       <property name="styleSheet">
+        <string notr="true">font: 75 12pt &quot;URW Palladio L&quot;;</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="3" column="0">
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="0" column="0">
+      <widget class="QLabel" name="labelUserName">
+       <property name="styleSheet">
+        <string notr="true">font: 75 12pt &quot;URW Palladio L&quot;;
+color: rgb(32, 74, 135);</string>
+       </property>
+       <property name="text">
+        <string>User Name :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="lineEditUserName">
+       <property name="styleSheet">
+        <string notr="true">font: 75 12pt &quot;URW Palladio L&quot;;</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="6" column="0">
+    <layout class="QGridLayout" name="gridLayout_5">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="pushButtonConnect">
+       <property name="styleSheet">
+        <string notr="true">font: 75 12pt &quot;URW Palladio L&quot;;
+color: rgb(114, 159, 207);</string>
+       </property>
+       <property name="text">
+        <string>&amp;Connect</string>
+       </property>
+       <property name="icon">
+        <iconset resource="icon.qrc">
+         <normaloff>:/icon/image/check24.png</normaloff>:/icon/image/check24.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="pushButtonCancel">
+       <property name="styleSheet">
+        <string notr="true">font: 75 12pt &quot;URW Palladio L&quot;;
+color: rgb(204, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>&amp;Cancel</string>
+       </property>
+       <property name="icon">
+        <iconset resource="icon.qrc">
+         <normaloff>:/icon/image/cancel16.png</normaloff>:/icon/image/cancel16.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="icon.qrc"/>
+ </resources>
+ <connections/>
+</ui>
